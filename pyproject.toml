@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "grounded-research-agent"
+version = "0.1.0"
+description = "Bounded tool-using research agent with fail-closed citation verification and benchmarking"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "chromadb>=0.5.23,<2",
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "openai>=1.68,<3",
+  "psutil>=5.9,<8",
+  "pydantic>=2.10,<3",
+  "python-dotenv>=1.0,<2",
+  "tavily-python>=0.5,<1",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "playwright>=1.50,<2",
+  "pytest>=8.3,<9",
+  "pytest-cov>=6,<8",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+research-agent = "research_agent.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/research_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

@@ -1,0 +1,5106 @@
+{
+  "schema_version": 1,
+  "run_id": "local-steps3-20260819T022908237753Z",
+  "created_at": "2026-08-19T02:36:49.069713+00:00",
+  "mode": "local_fixture_tools",
+  "valid_for_live_model_accuracy": false,
+  "valid_for_model_accuracy": true,
+  "valid_for_end_to_end_search_accuracy": false,
+  "experiment_variable": "MAX_STEPS",
+  "configuration": {
+    "max_steps": 3,
+    "citation_verifier": "enabled_fail_closed",
+    "tool_descriptions": "verbose",
+    "plan_revision": "allowed_each_turn",
+    "manifest": {
+      "agent_model": "qwen3:4b",
+      "judge_model": "qwen3:4b",
+      "tool_backend": "RecordedBenchmarkToolExecutor",
+      "model_provider": "ollama_local",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "model_runtime_version": "0.21.1",
+      "model_options": {
+        "provider": "ollama_local",
+        "runtime_version": "0.21.1",
+        "base_url": "http://127.0.0.1:11434",
+        "structured_output": "native_ollama_json_schema",
+        "think": false,
+        "temperature": 0,
+        "seed": 42,
+        "num_ctx": 32768,
+        "num_predict": 512,
+        "timeout_seconds": 120.0,
+        "cost_basis": "local_unbilled_excludes_hardware_and_electricity"
+      },
+      "python_version": "3.11.15",
+      "platform": "macOS-26.6.1-arm64-arm-64bit",
+      "package_versions": {
+        "chromadb": "1.5.9",
+        "fastapi": "0.141.1",
+        "httpx": "0.28.1",
+        "openai": "2.54.0",
+        "psutil": "7.2.2",
+        "pydantic": "2.13.4",
+        "tavily-python": "0.7.27",
+        "uvicorn": "0.52.3"
+      },
+      "pricing_assumptions": {
+        "input_cost_per_million": 0.0,
+        "output_cost_per_million": 0.0,
+        "tavily_cost_per_call": 0.0
+      },
+      "timeouts": {
+        "python_seconds": 5.0,
+        "web_seconds": 15.0
+      },
+      "benchmark_sha256": "70f7c03aa5ed7fae88a457dbffd6dbd9e64cacd42d9a1ad7f63cc24d77a0a06d",
+      "fixtures_sha256": "941b8c2fe5a77b8036c2290a07b30f63638e4fbc14a6132a5053201f2197219e",
+      "tool_descriptions_sha256": "ee343745a28d98bcda77c38aab5e6862427f05b9359155b4f6341db83e4fb55a",
+      "source_tree_sha256": "98df354898750d3a0ed6b4cd7ead4cf9b679088b981d8060f41ef193335db263",
+      "dependency_lock_sha256": "ceeddeeed1bae0bd2d60285339f261d050329f43f60b4d65a8689f4319fd5367"
+    }
+  },
+  "metrics": {
+    "accuracy": 0.65,
+    "accuracy_pct": 65.0,
+    "accuracy_numerator": 26,
+    "accuracy_denominator": 40,
+    "hallucination_rate": 0.0,
+    "hallucination_rate_pct": 0.0,
+    "hallucination_numerator": 0,
+    "hallucination_denominator": 10,
+    "verifier_catch_rate": 0.2711864406779661,
+    "verifier_catch_rate_pct": 27.11864406779661,
+    "claims_deleted": 16,
+    "claims_generated": 59,
+    "average_steps_per_question": 2.36,
+    "average_cost_usd_per_question": 0.0,
+    "average_latency_ms_per_question": 8747.816904925276
+  },
+  "results": [
+    {
+      "id": "factual_001",
+      "question": "What is the chemical symbol for gold?",
+      "known_correct_answer": "Au",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "What is the chemical symbol for gold?",
+        "status": "answered",
+        "answer": "Au",
+        "claims": [
+          {
+            "text": "Au",
+            "source_id": "src_recorded_9cf225e9e220424290a91c712cde215a"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "chemical symbol for gold"
+            },
+            "source_id": "src_recorded_9cf225e9e220424290a91c712cde215a",
+            "success": true,
+            "error": null,
+            "latency_ms": 2339.75579100661
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3018.241749959998
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_9cf225e9e220424290a91c712cde215a",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-001",
+                  "title": "Gold reference",
+                  "snippet": "Gold has the chemical symbol Au."
+                }
+              ],
+              "query": "chemical symbol for gold",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "chemical symbol for gold"
+            },
+            "error": null,
+            "duration_ms": 0.047083012759685516,
+            "created_at": "2026-08-19T02:29:10.582241Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2553,
+          "output_tokens": 177,
+          "cost_usd": 0.0,
+          "latency_ms": 5357.950457953848
+        },
+        "latency_ms": 5365.527332993224,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer 'Au' matches the reference answer 'Au' exactly for the chemical symbol of gold.",
+        "judge_usage": {
+          "input_tokens": 214,
+          "output_tokens": 35,
+          "cost_usd": 0.0,
+          "latency_ms": 946.2900410289876
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6311.817374022212
+    },
+    {
+      "id": "factual_002",
+      "question": "Who wrote Pride and Prejudice?",
+      "known_correct_answer": "Jane Austen",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "Who wrote Pride and Prejudice?",
+        "status": "answered",
+        "answer": "Jane Austen wrote the novel Pride and Prejudice.",
+        "claims": [
+          {
+            "text": "Jane Austen wrote the novel Pride and Prejudice.",
+            "source_id": "src_recorded_0148515abb9d4e14aa545d51d49aabba"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Who wrote Pride and Prejudice"
+            },
+            "source_id": "src_recorded_0148515abb9d4e14aa545d51d49aabba",
+            "success": true,
+            "error": null,
+            "latency_ms": 2646.112459071446
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3449.1277090273798
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_0148515abb9d4e14aa545d51d49aabba",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-002",
+                  "title": "Pride and Prejudice reference",
+                  "snippet": "Jane Austen wrote the novel Pride and Prejudice."
+                }
+              ],
+              "query": "Who wrote Pride and Prejudice",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "author of Pride and Prejudice"
+            },
+            "error": null,
+            "duration_ms": 0.10737503180280328,
+            "created_at": "2026-08-19T02:29:17.207052Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2584,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 6095.132793067023
+        },
+        "latency_ms": 6105.824500031304,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer clearly states that Jane Austen wrote Pride and Pre: The reference answer is 'Jane Austen' and the candidate answer directly states this fact without any contradiction or additional incompatible information. The candidate answer is a complete sentence that accurately identifies the author as Jane Austen, which matches the reference answer exactly.",
+        "judge_usage": {
+          "input_tokens": 227,
+          "output_tokens": 77,
+          "cost_usd": 0.0,
+          "latency_ms": 1355.1172080333345
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7460.941708064638
+    },
+    {
+      "id": "factual_003",
+      "question": "What is the capital of Japan?",
+      "known_correct_answer": "Tokyo",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "What is the capital of Japan?",
+        "status": "answered",
+        "answer": "Tokyo is the capital of Japan.",
+        "claims": [
+          {
+            "text": "Tokyo is the capital of Japan.",
+            "source_id": "src_recorded_d32bf176dfb5431aba698eb180291011"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "capital of Japan"
+            },
+            "source_id": "src_recorded_d32bf176dfb5431aba698eb180291011",
+            "success": true,
+            "error": null,
+            "latency_ms": 2144.0518330200575
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3234.5690419897437
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_d32bf176dfb5431aba698eb180291011",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-003",
+                  "title": "Japan reference",
+                  "snippet": "Tokyo is the capital of Japan."
+                }
+              ],
+              "query": "capital of Japan",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "capital of Japan"
+            },
+            "error": null,
+            "duration_ms": 0.07950002327561378,
+            "created_at": "2026-08-19T02:29:24.163443Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2546,
+          "output_tokens": 171,
+          "cost_usd": 0.0,
+          "latency_ms": 5378.541374986526
+        },
+        "latency_ms": 5388.2768750190735,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that Tokyo is the capital of Japan, which matches the reference answer of Tokyo. The candidate answer is a complete sentence that directly states the correct capital city without any contradictions or additional incompatible information.",
+        "judge_usage": {
+          "input_tokens": 221,
+          "output_tokens": 56,
+          "cost_usd": 0.0,
+          "latency_ms": 1295.6119170412421
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6683.888792060316
+    },
+    {
+      "id": "factual_004",
+      "question": "Which planet is the largest in the Solar System?",
+      "known_correct_answer": "Jupiter",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "Which planet is the largest in the Solar System?",
+        "status": "answered",
+        "answer": "Jupiter is the largest planet in the Solar System.",
+        "claims": [
+          {
+            "text": "Jupiter is the largest planet in the Solar System.",
+            "source_id": "src_recorded_29c72bcfc0104f1aaa6835083d184395"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "largest planet in solar system"
+            },
+            "source_id": "src_recorded_29c72bcfc0104f1aaa6835083d184395",
+            "success": true,
+            "error": null,
+            "latency_ms": 2281.8940830184147
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3459.16304201819
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_29c72bcfc0104f1aaa6835083d184395",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-004",
+                  "title": "Solar System planets",
+                  "snippet": "Jupiter is the largest planet in the Solar System."
+                }
+              ],
+              "query": "largest planet in solar system",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "largest planet in the Solar System"
+            },
+            "error": null,
+            "duration_ms": 0.15054200775921345,
+            "created_at": "2026-08-19T02:29:30.990036Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2582,
+          "output_tokens": 171,
+          "cost_usd": 0.0,
+          "latency_ms": 5740.9065830288455
+        },
+        "latency_ms": 5750.588625029195,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that Jupiter is the largest planet in the Solar System, which matches the reference answer of Jupiter. The candidate answer is a complete sentence that directly states the reference answer without adding incompatible information or making contradictions. The answer is accurate and does not require additional context to be considered correct.",
+        "judge_usage": {
+          "input_tokens": 227,
+          "output_tokens": 73,
+          "cost_usd": 0.0,
+          "latency_ms": 1641.5825419826433
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7392.171167011838
+    },
+    {
+      "id": "factual_005",
+      "question": "In what year did Apollo 11 first land humans on the Moon?",
+      "known_correct_answer": "1969",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "In what year did Apollo 11 first land humans on the Moon?",
+        "status": "answered",
+        "answer": "Apollo 11 landed humans on the Moon in 1969",
+        "claims": [
+          {
+            "text": "Apollo 11 landed humans on the Moon in 1969",
+            "source_id": "src_recorded_c9a92a63835240b5a59157979eadb982"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Apollo 11 first land humans on Moon year"
+            },
+            "source_id": "src_recorded_c9a92a63835240b5a59157979eadb982",
+            "success": true,
+            "error": null,
+            "latency_ms": 2766.1457909853198
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3815.995834011119
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_c9a92a63835240b5a59157979eadb982",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-005",
+                  "title": "Apollo 11 timeline",
+                  "snippet": "Apollo 11 landed the first humans on the Moon in 1969."
+                }
+              ],
+              "query": "Apollo 11 first land humans on Moon year",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "year Apollo 11 landed humans on the Moon"
+            },
+            "error": null,
+            "duration_ms": 0.6539580062963068,
+            "created_at": "2026-08-19T02:29:38.870218Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2632,
+          "output_tokens": 217,
+          "cost_usd": 0.0,
+          "latency_ms": 6581.487666990142
+        },
+        "latency_ms": 6597.679791972041,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that Apollo 11 landed humans on the Moon in 1969, which matches the reference answer of 1969. The candidate provides the correct year without any incompatible information or contradictions.",
+        "judge_usage": {
+          "input_tokens": 238,
+          "output_tokens": 60,
+          "cost_usd": 0.0,
+          "latency_ms": 1220.4461250221357
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7818.125916994177
+    },
+    {
+      "id": "factual_006",
+      "question": "What is the largest ocean on Earth?",
+      "known_correct_answer": "Pacific Ocean",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "What is the largest ocean on Earth?",
+        "status": "answered",
+        "answer": "The Pacific Ocean is the largest ocean on Earth.",
+        "claims": [
+          {
+            "text": "The Pacific Ocean is the largest ocean on Earth.",
+            "source_id": "src_recorded_b977bce9dee8408da6ced65867b68f0d"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "largest ocean on Earth"
+            },
+            "source_id": "src_recorded_b977bce9dee8408da6ced65867b68f0d",
+            "success": true,
+            "error": null,
+            "latency_ms": 2181.7257090006024
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 2864.84474997269
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_b977bce9dee8408da6ced65867b68f0d",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-006",
+                  "title": "Earth oceans",
+                  "snippet": "The Pacific Ocean is the largest ocean on Earth."
+                }
+              ],
+              "query": "largest ocean on Earth",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "largest ocean on Earth"
+            },
+            "error": null,
+            "duration_ms": 0.0872919918037951,
+            "created_at": "2026-08-19T02:29:46.105474Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2558,
+          "output_tokens": 177,
+          "cost_usd": 0.0,
+          "latency_ms": 5046.4831669814885
+        },
+        "latency_ms": 5053.848166018724,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that the Pacific Ocean is the largest ocean on Earth, which matches the reference answer exactly. The candidate does not provide any incompatible final answer or contradict the reference. The answer is clear, direct, and correctly identifies the Pacific Ocean as the largest ocean.",
+        "judge_usage": {
+          "input_tokens": 224,
+          "output_tokens": 68,
+          "cost_usd": 0.0,
+          "latency_ms": 1271.2684579892084
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6325.116624007933
+    },
+    {
+      "id": "factual_007",
+      "question": "How many chambers does a typical human heart have?",
+      "known_correct_answer": "Four",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "How many chambers does a typical human heart have?",
+        "status": "answered",
+        "answer": "A typical human heart has four chambers.",
+        "claims": [
+          {
+            "text": "A typical human heart has four chambers.",
+            "source_id": "src_recorded_86a79bcc854343f1905e6e9380ddfbde"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "How many chambers does a typical human heart have"
+            },
+            "source_id": "src_recorded_86a79bcc854343f1905e6e9380ddfbde",
+            "success": true,
+            "error": null,
+            "latency_ms": 2324.136625044048
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3369.4588330108672
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_86a79bcc854343f1905e6e9380ddfbde",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-007",
+                  "title": "Human heart anatomy",
+                  "snippet": "A typical human heart has four chambers."
+                }
+              ],
+              "query": "How many chambers does a typical human heart have",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "number of chambers in a human heart"
+            },
+            "error": null,
+            "duration_ms": 0.17395801842212677,
+            "created_at": "2026-08-19T02:29:52.573895Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2577,
+          "output_tokens": 179,
+          "cost_usd": 0.0,
+          "latency_ms": 5693.421500036493
+        },
+        "latency_ms": 5708.933665999211,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that a typical human heart has four chambers, which matches the reference answer of 'Four'. The candidate answer is a direct restatement of the reference answer without adding incompatible information or making contradictions. The answer is clear, accurate, and matches the reference exactly.",
+        "judge_usage": {
+          "input_tokens": 223,
+          "output_tokens": 69,
+          "cost_usd": 0.0,
+          "latency_ms": 1422.9509590077214
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7131.884625006933
+    },
+    {
+      "id": "factual_008",
+      "question": "Which chemical element has atomic number 6?",
+      "known_correct_answer": "Carbon",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "Which chemical element has atomic number 6?",
+        "status": "answered",
+        "answer": "Carbon is the chemical element with atomic number 6",
+        "claims": [
+          {
+            "text": "Carbon is the chemical element with atomic number 6",
+            "source_id": "src_recorded_97b8f1948c404a27ab7a9f8553a5e8c4"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Which chemical element has atomic number 6"
+            },
+            "source_id": "src_recorded_97b8f1948c404a27ab7a9f8553a5e8c4",
+            "success": true,
+            "error": null,
+            "latency_ms": 2148.092667979654
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3340.1875009876676
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_97b8f1948c404a27ab7a9f8553a5e8c4",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-008",
+                  "title": "Carbon reference",
+                  "snippet": "Carbon is the chemical element with atomic number 6."
+                }
+              ],
+              "query": "Which chemical element has atomic number 6",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "element with atomic number 6"
+            },
+            "error": null,
+            "duration_ms": 0.2059590187855065,
+            "created_at": "2026-08-19T02:29:59.536543Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2589,
+          "output_tokens": 176,
+          "cost_usd": 0.0,
+          "latency_ms": 5488.074209948536
+        },
+        "latency_ms": 5503.473665972706,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that 'Carbon is the chemical element with atomic number 6', which directly matches the reference answer 'Carbon'. The candidate provides the correct element and the correct atomic number without any contradictions or additional incompatible information. The answer is clear and accurate.",
+        "judge_usage": {
+          "input_tokens": 224,
+          "output_tokens": 66,
+          "cost_usd": 0.0,
+          "latency_ms": 1266.9285419979133
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6770.402207970619
+    },
+    {
+      "id": "factual_009",
+      "question": "Who painted The Starry Night?",
+      "known_correct_answer": "Vincent van Gogh",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "Who painted The Starry Night?",
+        "status": "answered",
+        "answer": "Vincent van Gogh painted The Starry Night",
+        "claims": [
+          {
+            "text": "Vincent van Gogh painted The Starry Night",
+            "source_id": "src_recorded_dbd4bfc4254a4c0db1900b31a035481f"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Who painted The Starry Night?"
+            },
+            "source_id": "src_recorded_dbd4bfc4254a4c0db1900b31a035481f",
+            "success": true,
+            "error": null,
+            "latency_ms": 2295.277666009497
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3788.786416989751
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_dbd4bfc4254a4c0db1900b31a035481f",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-009",
+                  "title": "The Starry Night",
+                  "snippet": "Vincent van Gogh painted The Starry Night."
+                }
+              ],
+              "query": "Who painted The Starry Night?",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "painter of The Starry Night"
+            },
+            "error": null,
+            "duration_ms": 0.18820801051333547,
+            "created_at": "2026-08-19T02:30:06.451091Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2578,
+          "output_tokens": 182,
+          "cost_usd": 0.0,
+          "latency_ms": 6083.875874988735
+        },
+        "latency_ms": 6097.610290977173,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that Vincent van Gogh painted The Starry Night, which matches the reference answer exactly. The candidate does not provide any incompatible final answer or contradict the reference. The answer is clear, direct, and correctly identifies the artist without additional inaccuracies.",
+        "judge_usage": {
+          "input_tokens": 226,
+          "output_tokens": 67,
+          "cost_usd": 0.0,
+          "latency_ms": 1482.4161660508253
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7580.026457027998
+    },
+    {
+      "id": "factual_010",
+      "question": "What is the currency of Switzerland?",
+      "known_correct_answer": "Swiss franc",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "What is the currency of Switzerland?",
+        "status": "answered",
+        "answer": "The currency of Switzerland is the Swiss franc.",
+        "claims": [
+          {
+            "text": "The currency of Switzerland is the Swiss franc.",
+            "source_id": "src_recorded_a60a13c34c0d4e179b5d0591960de267"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "currency of Switzerland"
+            },
+            "source_id": "src_recorded_a60a13c34c0d4e179b5d0591960de267",
+            "success": true,
+            "error": null,
+            "latency_ms": 2357.772458984982
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3153.0964999692515
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_a60a13c34c0d4e179b5d0591960de267",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-010",
+                  "title": "Switzerland currency",
+                  "snippet": "The currency of Switzerland is the Swiss franc."
+                }
+              ],
+              "query": "currency of Switzerland",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "currency of Switzerland"
+            },
+            "error": null,
+            "duration_ms": 0.2589999930933118,
+            "created_at": "2026-08-19T02:30:14.098510Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2560,
+          "output_tokens": 178,
+          "cost_usd": 0.0,
+          "latency_ms": 5510.60995896114
+        },
+        "latency_ms": 5524.167915980797,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that the currency of Switzerland is the Swiss franc, which matches the reference answer exactly. The candidate provides the correct final answer without any incompatible additions or contradictions.",
+        "judge_usage": {
+          "input_tokens": 223,
+          "output_tokens": 49,
+          "cost_usd": 0.0,
+          "latency_ms": 1083.6561670294032
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6607.8240830102
+    },
+    {
+      "id": "factual_011",
+      "question": "What is the official language used nationally in Brazil?",
+      "known_correct_answer": "Portuguese",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "What is the official language used nationally in Brazil?",
+        "status": "answered",
+        "answer": "Portuguese is the official language used nationally in Brazil.",
+        "claims": [
+          {
+            "text": "Portuguese is the official language used nationally in Brazil.",
+            "source_id": "src_recorded_5ecc2fbca7b7471782c59b9b97a97138"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "official language of Brazil"
+            },
+            "source_id": "src_recorded_5ecc2fbca7b7471782c59b9b97a97138",
+            "success": true,
+            "error": null,
+            "latency_ms": 2271.6302490443923
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3082.82704197336
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_5ecc2fbca7b7471782c59b9b97a97138",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-011",
+                  "title": "Brazil language",
+                  "snippet": "Portuguese is the official language used nationally in Brazil."
+                }
+              ],
+              "query": "official language of Brazil",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "official language of Brazil"
+            },
+            "error": null,
+            "duration_ms": 0.11566601460799575,
+            "created_at": "2026-08-19T02:30:20.618814Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2574,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 5354.341625003144
+        },
+        "latency_ms": 5362.498709000647,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that 'Portuguese is the official language used nationally in Brazil', which directly matches the reference answer 'Portuguese'. The candidate provides the exact reference answer without adding incompatible information or making contradictions. The answer is clear, complete, and correctly identifies the official language of Brazil as Portuguese.",
+        "judge_usage": {
+          "input_tokens": 229,
+          "output_tokens": 76,
+          "cost_usd": 0.0,
+          "latency_ms": 1452.794165990781
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6815.292874991428
+    },
+    {
+      "id": "factual_012",
+      "question": "What is the first element in the periodic table?",
+      "known_correct_answer": "Hydrogen",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "What is the first element in the periodic table?",
+        "status": "answered",
+        "answer": "Hydrogen is the first element in the periodic table.",
+        "claims": [
+          {
+            "text": "Hydrogen is the first element in the periodic table.",
+            "source_id": "src_recorded_e33c7a4e1ff545b3a5fb2d6291d64ae5"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "What is the first element in the periodic table"
+            },
+            "source_id": "src_recorded_e33c7a4e1ff545b3a5fb2d6291d64ae5",
+            "success": true,
+            "error": null,
+            "latency_ms": 2330.1208739867434
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3100.055208953563
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_e33c7a4e1ff545b3a5fb2d6291d64ae5",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-012",
+                  "title": "Periodic table",
+                  "snippet": "Hydrogen is the first element in the periodic table."
+                }
+              ],
+              "query": "What is the first element in the periodic table",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "first element in periodic table"
+            },
+            "error": null,
+            "duration_ms": 0.07320800796151161,
+            "created_at": "2026-08-19T02:30:27.493035Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2592,
+          "output_tokens": 188,
+          "cost_usd": 0.0,
+          "latency_ms": 5430.102874932345
+        },
+        "latency_ms": 5436.848583980463,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that 'Hydrogen is the first element in the periodic table.' This directly matches the reference answer 'Hydrogen' without any incompatible final answer. The candidate provides the correct element name and confirms it is the first element, which aligns with the reference answer.",
+        "judge_usage": {
+          "input_tokens": 229,
+          "output_tokens": 72,
+          "cost_usd": 0.0,
+          "latency_ms": 1385.747916996479
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6822.5965009769425
+    },
+    {
+      "id": "factual_013",
+      "question": "In what year was the Treaty of Versailles signed?",
+      "known_correct_answer": "1919",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "In what year was the Treaty of Versailles signed?",
+        "status": "answered",
+        "answer": "The Treaty of Versailles was signed in 1919.",
+        "claims": [
+          {
+            "text": "The Treaty of Versailles was signed in 1919.",
+            "source_id": "src_recorded_1fe30eb694214cfda90e2445f0a6cb30"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Treaty of Versailles signing year"
+            },
+            "source_id": "src_recorded_1fe30eb694214cfda90e2445f0a6cb30",
+            "success": true,
+            "error": null,
+            "latency_ms": 2272.2422500373796
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3102.4040009942837
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_1fe30eb694214cfda90e2445f0a6cb30",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-013",
+                  "title": "Treaty of Versailles",
+                  "snippet": "The Treaty of Versailles was signed in 1919."
+                }
+              ],
+              "query": "Treaty of Versailles signing year",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "year Treaty of Versailles signed"
+            },
+            "error": null,
+            "duration_ms": 0.05420803790912032,
+            "created_at": "2026-08-19T02:30:34.258381Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2601,
+          "output_tokens": 190,
+          "cost_usd": 0.0,
+          "latency_ms": 5374.592042993754
+        },
+        "latency_ms": 5379.97654202627,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer clearly states that the Treaty of Versailles was signed in 1919, which matches the reference answer of 1919. There are no incompatible final answers or contradictions, and the answer is stated directly without additional context that would alter the meaning.",
+        "judge_usage": {
+          "input_tokens": 233,
+          "output_tokens": 70,
+          "cost_usd": 0.0,
+          "latency_ms": 1399.1621669847518
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6779.138709011022
+    },
+    {
+      "id": "factual_014",
+      "question": "What is the tallest mountain above sea level?",
+      "known_correct_answer": "Mount Everest",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "What is the tallest mountain above sea level?",
+        "status": "answered",
+        "answer": "Mount Everest is the tallest mountain above sea level.",
+        "claims": [
+          {
+            "text": "Mount Everest is the tallest mountain above sea level.",
+            "source_id": "src_recorded_0501108bdb754fcfa52dfaa46b3eaaa2"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "tallest mountain above sea level"
+            },
+            "source_id": "src_recorded_0501108bdb754fcfa52dfaa46b3eaaa2",
+            "success": true,
+            "error": null,
+            "latency_ms": 2230.6400010129437
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 2962.3692079330795
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_0501108bdb754fcfa52dfaa46b3eaaa2",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-014",
+                  "title": "Mount Everest",
+                  "snippet": "Mount Everest is the tallest mountain above sea level."
+                }
+              ],
+              "query": "tallest mountain above sea level",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "tallest mountain above sea level"
+            },
+            "error": null,
+            "duration_ms": 0.03870902583003044,
+            "created_at": "2026-08-19T02:30:40.997686Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2562,
+          "output_tokens": 176,
+          "cost_usd": 0.0,
+          "latency_ms": 5192.970499920193
+        },
+        "latency_ms": 5198.574792011641,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer clearly states that Mount Everest is the tallest mountain above sea level, which matches the reference answer exactly. The candidate does not provide any incompatible final answer or contradict the reference. The answer is concise and directly states the correct fact without additional inaccuracies.",
+        "judge_usage": {
+          "input_tokens": 225,
+          "output_tokens": 66,
+          "cost_usd": 0.0,
+          "latency_ms": 1293.221583997365
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6491.796376009006
+    },
+    {
+      "id": "factual_015",
+      "question": "At one standard atmosphere, what is the boiling point of pure water in degrees Celsius?",
+      "known_correct_answer": "100 degrees Celsius",
+      "category": "factual_lookup",
+      "answerable": true,
+      "agent": {
+        "question": "At one standard atmosphere, what is the boiling point of pure water in degrees Celsius?",
+        "status": "answered",
+        "answer": "At one standard atmosphere, pure water boils at 100 degrees Celsius.",
+        "claims": [
+          {
+            "text": "At one standard atmosphere, pure water boils at 100 degrees Celsius.",
+            "source_id": "src_recorded_1f522f30693b4d31ab3aca0960a2ffad"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "boiling point of pure water at standard atmosphere in degrees Celsius"
+            },
+            "source_id": "src_recorded_1f522f30693b4d31ab3aca0960a2ffad",
+            "success": true,
+            "error": null,
+            "latency_ms": 2312.203541980125
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3171.2985829799436
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_1f522f30693b4d31ab3aca0960a2ffad",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/factual-015",
+                  "title": "Water boiling point",
+                  "snippet": "At one standard atmosphere, pure water boils at 100 degrees Celsius."
+                }
+              ],
+              "query": "boiling point of pure water at standard atmosphere in degrees Celsius",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "boiling point pure water one standard atmosphere Celsius"
+            },
+            "error": null,
+            "duration_ms": 0.050292001105844975,
+            "created_at": "2026-08-19T02:30:47.572096Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2627,
+          "output_tokens": 198,
+          "cost_usd": 0.0,
+          "latency_ms": 5483.451832958963
+        },
+        "latency_ms": 5489.345665962901,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful web_search call",
+        "reason": "The candidate answer states that pure water boils at 100 degrees Celsius at one standard atmosphere, which matches the reference answer of 100 degrees Celsius. The candidate answer is a direct restatement of the reference answer without any additional incompatible information or contradictions. The units (degrees Celsius) and the condition (one standard atmosphere) are correctly specified.",
+        "judge_usage": {
+          "input_tokens": 242,
+          "output_tokens": 85,
+          "cost_usd": 0.0,
+          "latency_ms": 1683.3650000044145
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7172.710665967315
+    },
+    {
+      "id": "multi_step_001",
+      "question": "Use distinct web lookups: first find the number of permanent members of the United Nations Security Council, then find the element with that atomic number. Which element is it?",
+      "known_correct_answer": "Boron",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first find the number of permanent members of the United Nations Security Council, then find the element with that atomic number. Which element is it?",
+        "status": "answered",
+        "answer": "The United Nations Security Council has five permanent members.",
+        "claims": [
+          {
+            "text": "The United Nations Security Council has five permanent members.",
+            "source_id": "src_recorded_cc0a7b30bfee4adfb8cb1a483b80a3f8"
+          }
+        ],
+        "deletions": [
+          {
+            "reason": "unknown_source_id",
+            "detail": "The citation was not present in this run's source history."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "number of permanent members of the United Nations Security Council"
+            },
+            "source_id": "src_recorded_cc0a7b30bfee4adfb8cb1a483b80a3f8",
+            "success": true,
+            "error": null,
+            "latency_ms": 2362.9617080441676
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "number of permanent members of the United Nations Security Council"
+            },
+            "source_id": "src_recorded_affcd133c1b54dfdb802516e95b82b94",
+            "success": true,
+            "error": null,
+            "latency_ms": 1672.4909579497762
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3623.1652919668704
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_cc0a7b30bfee4adfb8cb1a483b80a3f8",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-001-a",
+                  "title": "UN Security Council membership",
+                  "snippet": "The United Nations Security Council has five permanent members."
+                }
+              ],
+              "query": "number of permanent members of the United Nations Security Council",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "number of permanent members United Nations Security Council"
+            },
+            "error": null,
+            "duration_ms": 0.05116703687235713,
+            "created_at": "2026-08-19T02:30:54.799046Z"
+          },
+          {
+            "source_id": "src_recorded_affcd133c1b54dfdb802516e95b82b94",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-001-a",
+                  "title": "UN Security Council membership",
+                  "snippet": "The United Nations Security Council has five permanent members."
+                }
+              ],
+              "query": "number of permanent members of the United Nations Security Council",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "number of permanent members United Nations Security Council"
+            },
+            "error": null,
+            "duration_ms": 0.05774997407570481,
+            "created_at": "2026-08-19T02:30:56.473144Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4516,
+          "output_tokens": 272,
+          "cost_usd": 0.0,
+          "latency_ms": 7658.509040949866
+        },
+        "latency_ms": 7669.381125015207,
+        "claims_generated": 2,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": false,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "tool contract failed: requires at least two distinct successful web_search calls",
+        "judge_usage": {
+          "input_tokens": 250,
+          "output_tokens": 92,
+          "cost_usd": 0.0,
+          "latency_ms": 1631.9771250127815
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 9301.358250027988
+    },
+    {
+      "id": "multi_step_002",
+      "question": "Use distinct web lookups: first identify the country whose flag has a centered red maple leaf, then find that country's capital. What is it?",
+      "known_correct_answer": "Ottawa",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the country whose flag has a centered red maple leaf, then find that country's capital. What is it?",
+        "status": "answered",
+        "answer": "Ottawa",
+        "claims": [
+          {
+            "text": "Ottawa",
+            "source_id": "src_recorded_8710452e22444095a987f31f044279bb"
+          }
+        ],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "country with flag centered red maple leaf"
+            },
+            "source_id": "src_recorded_60e6b5fc94914dffa8b67355db33aae4",
+            "success": true,
+            "error": null,
+            "latency_ms": 2288.3799159899354
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "capital of canada"
+            },
+            "source_id": "src_recorded_8710452e22444095a987f31f044279bb",
+            "success": true,
+            "error": null,
+            "latency_ms": 1545.5351659911685
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 5878.182084008586
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_60e6b5fc94914dffa8b67355db33aae4",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-002-a",
+                  "title": "Flag of Canada",
+                  "snippet": "Canada's national flag has a centered red maple leaf."
+                }
+              ],
+              "query": "country with flag centered red maple leaf",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "country flag centered red maple leaf"
+            },
+            "error": null,
+            "duration_ms": 0.0398330157622695,
+            "created_at": "2026-08-19T02:31:04.026599Z"
+          },
+          {
+            "source_id": "src_recorded_8710452e22444095a987f31f044279bb",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-002-b",
+                  "title": "Canada capital",
+                  "snippet": "Ottawa is the capital of Canada."
+                }
+              ],
+              "query": "capital of canada",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "capital of Canada"
+            },
+            "error": null,
+            "duration_ms": 0.05287496605888009,
+            "created_at": "2026-08-19T02:31:05.574271Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4645,
+          "output_tokens": 396,
+          "cost_usd": 0.0,
+          "latency_ms": 9712.004458007868
+        },
+        "latency_ms": 9722.494874964468,
+        "claims_generated": 2,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "The candidate answer 'Ottawa' matches the reference answer 'Ottawa'. The reference answer correctly identifies Ottawa as the capital of Canada, which is the country whose flag has a centered red maple leaf. The candidate answer directly states the capital city without any additional information that contradicts the reference answer.",
+        "judge_usage": {
+          "input_tokens": 240,
+          "output_tokens": 75,
+          "cost_usd": 0.0,
+          "latency_ms": 1417.2966250334866
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 11139.791499997955
+    },
+    {
+      "id": "multi_step_003",
+      "question": "Use distinct web lookups: first identify the novel whose protagonist is Winston Smith, then find its author. Who wrote it?",
+      "known_correct_answer": "George Orwell",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the novel whose protagonist is Winston Smith, then find its author. Who wrote it?",
+        "status": "answered",
+        "answer": "The novel whose protagonist is Winston Smith is Nineteen Eighty-Four",
+        "claims": [
+          {
+            "text": "The novel whose protagonist is Winston Smith is Nineteen Eighty-Four",
+            "source_id": "src_recorded_cbf2b350cabf4248b13fa915d377a7b7"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "novel protagonist Winston Smith"
+            },
+            "source_id": "src_recorded_cbf2b350cabf4248b13fa915d377a7b7",
+            "success": true,
+            "error": null,
+            "latency_ms": 2391.826749953907
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3631.446167069953
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_cbf2b350cabf4248b13fa915d377a7b7",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-003-a",
+                  "title": "Winston Smith",
+                  "snippet": "Winston Smith is the protagonist of the novel Nineteen Eighty-Four, also titled 1984."
+                }
+              ],
+              "query": "novel protagonist Winston Smith",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "novel protagonist Winston Smith"
+            },
+            "error": null,
+            "duration_ms": 0.081416976172477,
+            "created_at": "2026-08-19T02:31:15.266017Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2635,
+          "output_tokens": 217,
+          "cost_usd": 0.0,
+          "latency_ms": 6023.191500047687
+        },
+        "latency_ms": 6030.392125016078,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": false,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "tool contract failed: requires at least two distinct successful web_search calls",
+        "judge_usage": {
+          "input_tokens": 246,
+          "output_tokens": 121,
+          "cost_usd": 0.0,
+          "latency_ms": 2087.2760000056587
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 8117.668125021737
+    },
+    {
+      "id": "multi_step_004",
+      "question": "Use distinct web lookups: first identify the country where Angkor Wat is located, then find that country's official currency. What is it?",
+      "known_correct_answer": "Cambodian riel",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the country where Angkor Wat is located, then find that country's official currency. What is it?",
+        "status": "answered",
+        "answer": "Angkor Wat is located in Cambodia The Cambodian riel is the official currency of Cambodia",
+        "claims": [
+          {
+            "text": "Angkor Wat is located in Cambodia",
+            "source_id": "src_recorded_f384ed78208246b08abb3404063948ff"
+          },
+          {
+            "text": "The Cambodian riel is the official currency of Cambodia",
+            "source_id": "src_recorded_a35550632085464c8a83fbc5c0c0f423"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Angkor Wat country location"
+            },
+            "source_id": "src_recorded_f384ed78208246b08abb3404063948ff",
+            "success": true,
+            "error": null,
+            "latency_ms": 2330.30787401367
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Cambodia official currency"
+            },
+            "source_id": "src_recorded_a35550632085464c8a83fbc5c0c0f423",
+            "success": true,
+            "error": null,
+            "latency_ms": 1527.5657920283265
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 5049.602917046286
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_f384ed78208246b08abb3404063948ff",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-004-a",
+                  "title": "Angkor Wat location",
+                  "snippet": "Angkor Wat is located in Cambodia."
+                }
+              ],
+              "query": "Angkor Wat country location",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "country where Angkor Wat is located"
+            },
+            "error": null,
+            "duration_ms": 0.0374580267816782,
+            "created_at": "2026-08-19T02:31:23.318926Z"
+          },
+          {
+            "source_id": "src_recorded_a35550632085464c8a83fbc5c0c0f423",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-004-b",
+                  "title": "Cambodia currency",
+                  "snippet": "The Cambodian riel is the official currency of Cambodia."
+                }
+              ],
+              "query": "Cambodia official currency",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "official currency of Cambodia"
+            },
+            "error": null,
+            "duration_ms": 0.04075001925230026,
+            "created_at": "2026-08-19T02:31:24.847622Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4641,
+          "output_tokens": 322,
+          "cost_usd": 0.0,
+          "latency_ms": 8907.398375042249
+        },
+        "latency_ms": 8917.150957975537,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "The candidate correctly states that Angkor Wat is located in Cambodia and that the Cambodian riel is the official currency of Cambodia. This matches the reference answer of 'Cambodian riel' without any contradictions or missing information.",
+        "judge_usage": {
+          "input_tokens": 255,
+          "output_tokens": 59,
+          "cost_usd": 0.0,
+          "latency_ms": 1326.6600830247626
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10243.8110410003
+    },
+    {
+      "id": "multi_step_005",
+      "question": "Use distinct web lookups: first identify the city and country that hosted the 2016 Summer Olympics, then find that country's national official language. What is it?",
+      "known_correct_answer": "Portuguese",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the city and country that hosted the 2016 Summer Olympics, then find that country's national official language. What is it?",
+        "status": "answered",
+        "answer": "Rio de Janeiro hosted the 2016 Summer Olympics Portuguese is the official language used nationally in Brazil",
+        "claims": [
+          {
+            "text": "Rio de Janeiro hosted the 2016 Summer Olympics",
+            "source_id": "src_recorded_2b7c4a86c1744f1e8561dbb3225a61da"
+          },
+          {
+            "text": "Portuguese is the official language used nationally in Brazil",
+            "source_id": "src_recorded_b25b917f5e244cecaff50f4b74268974"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "city and country that hosted the 2016 Summer Olympics"
+            },
+            "source_id": "src_recorded_2b7c4a86c1744f1e8561dbb3225a61da",
+            "success": true,
+            "error": null,
+            "latency_ms": 2721.13412496401
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "national official language of Brazil"
+            },
+            "source_id": "src_recorded_b25b917f5e244cecaff50f4b74268974",
+            "success": true,
+            "error": null,
+            "latency_ms": 1857.7512079500593
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 5538.151749060489
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_2b7c4a86c1744f1e8561dbb3225a61da",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-005-a",
+                  "title": "2016 Summer Olympics",
+                  "snippet": "Rio de Janeiro hosted the 2016 Summer Olympics."
+                }
+              ],
+              "query": "city and country that hosted the 2016 Summer Olympics",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "host city 2016 Summer Olympics"
+            },
+            "error": null,
+            "duration_ms": 0.14037499204277992,
+            "created_at": "2026-08-19T02:31:33.954985Z"
+          },
+          {
+            "source_id": "src_recorded_b25b917f5e244cecaff50f4b74268974",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-005-c",
+                  "title": "Brazil language",
+                  "snippet": "Portuguese is the official language used nationally in Brazil."
+                }
+              ],
+              "query": "national official language of Brazil",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "official language of Brazil"
+            },
+            "error": null,
+            "duration_ms": 0.0445419573225081,
+            "created_at": "2026-08-19T02:31:35.815696Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4751,
+          "output_tokens": 341,
+          "cost_usd": 0.0,
+          "latency_ms": 10116.852165025193
+        },
+        "latency_ms": 10128.943582996726,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "judge_error: RuntimeError: Ollama returned invalid _AnswerCorrectness structured output",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10128.943582996726
+    },
+    {
+      "id": "multi_step_006",
+      "question": "Use distinct web lookups: first identify Hamlet's author and count the letters in the author's surname, then find the element with that atomic number. What is its symbol?",
+      "known_correct_answer": "Na",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify Hamlet's author and count the letters in the author's surname, then find the element with that atomic number. What is its symbol?",
+        "status": "answered",
+        "answer": "William Shakespeare is the author of Hamlet The surname Shakespeare has 11 letters",
+        "claims": [
+          {
+            "text": "William Shakespeare is the author of Hamlet",
+            "source_id": "src_recorded_8f47629eb7784f21b33b472be88ae4f6"
+          },
+          {
+            "text": "The surname Shakespeare has 11 letters",
+            "source_id": "src_recorded_6fae95a01c584dde87d043b1cf808566"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Who is the author of Hamlet"
+            },
+            "source_id": "src_recorded_8f47629eb7784f21b33b472be88ae4f6",
+            "success": true,
+            "error": null,
+            "latency_ms": 2736.453082994558
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "How many letters in Shakespeare"
+            },
+            "source_id": "src_recorded_6fae95a01c584dde87d043b1cf808566",
+            "success": true,
+            "error": null,
+            "latency_ms": 1806.8106659920886
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 5383.410207985435
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_8f47629eb7784f21b33b472be88ae4f6",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-006-a",
+                  "title": "Hamlet author",
+                  "snippet": "William Shakespeare wrote Hamlet."
+                }
+              ],
+              "query": "Who is the author of Hamlet",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "author of Hamlet"
+            },
+            "error": null,
+            "duration_ms": 0.0879999715834856,
+            "created_at": "2026-08-19T02:31:51.950683Z"
+          },
+          {
+            "source_id": "src_recorded_6fae95a01c584dde87d043b1cf808566",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-006-b",
+                  "title": "Shakespeare spelling",
+                  "snippet": "The surname Shakespeare is spelled with 11 letters."
+                }
+              ],
+              "query": "How many letters in Shakespeare",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "number of letters in Shakespeare"
+            },
+            "error": null,
+            "duration_ms": 0.05320803029462695,
+            "created_at": "2026-08-19T02:31:53.760126Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4669,
+          "output_tokens": 344,
+          "cost_usd": 0.0,
+          "latency_ms": 9926.532748970203
+        },
+        "latency_ms": 9936.616624996532,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "judge_error: RuntimeError: Ollama returned invalid _AnswerCorrectness structured output",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 9936.616624996532
+    },
+    {
+      "id": "multi_step_007",
+      "question": "Use distinct web lookups: first identify the city and country that hosted the 1992 Summer Olympics, then find that country's capital. What is it?",
+      "known_correct_answer": "Madrid",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the city and country that hosted the 1992 Summer Olympics, then find that country's capital. What is it?",
+        "status": "answered",
+        "answer": "Barcelona hosted the 1992 Summer Olympics Madrid is the capital of Spain",
+        "claims": [
+          {
+            "text": "Barcelona hosted the 1992 Summer Olympics",
+            "source_id": "src_recorded_37f4e5d33f8b49c6a11b47abf843766d"
+          },
+          {
+            "text": "Madrid is the capital of Spain",
+            "source_id": "src_recorded_dc711832800c481ea5000f66b79e04fc"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "city and country that hosted the 1992 Summer Olympics"
+            },
+            "source_id": "src_recorded_37f4e5d33f8b49c6a11b47abf843766d",
+            "success": true,
+            "error": null,
+            "latency_ms": 2996.495999977924
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "capital of Spain"
+            },
+            "source_id": "src_recorded_dc711832800c481ea5000f66b79e04fc",
+            "success": true,
+            "error": null,
+            "latency_ms": 2451.213790976908
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 8037.188166053966
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_37f4e5d33f8b49c6a11b47abf843766d",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-007-a",
+                  "title": "1992 Summer Olympics",
+                  "snippet": "Barcelona hosted the 1992 Summer Olympics."
+                }
+              ],
+              "query": "city and country that hosted the 1992 Summer Olympics",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "host city 1992 Summer Olympics"
+            },
+            "error": null,
+            "duration_ms": 0.1194169744849205,
+            "created_at": "2026-08-19T02:32:10.090685Z"
+          },
+          {
+            "source_id": "src_recorded_dc711832800c481ea5000f66b79e04fc",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-007-c",
+                  "title": "Spain capital",
+                  "snippet": "Madrid is the capital of Spain."
+                }
+              ],
+              "query": "capital of Spain",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "capital of Spain"
+            },
+            "error": null,
+            "duration_ms": 0.47374999849125743,
+            "created_at": "2026-08-19T02:32:12.549401Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4732,
+          "output_tokens": 330,
+          "cost_usd": 0.0,
+          "latency_ms": 13484.304790035821
+        },
+        "latency_ms": 13516.14070899086,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "The reference answer states that the answer is 'Madrid'. The candidate answer states that 'Barcelona hosted the 1992 Summer Olympics' and 'Madrid is the capital of Spain'. The candidate correctly identifies that Madrid is the capital of Spain, but the question asks for the city and country that hosted the 1992 Summer Olympics. The 1992 Summer Olympics were hosted by Barcelona, not Madrid. Therefore, the candidate's answer is incorrect because it states that Barcelona hosted the Olympics, which is not the case. The correct city that hosted the 199.2 Summer Olympics is Barcelona, and the capital of Spain is Madrid. However, the question asks for the city and country that hosted the Olympics, so the answer should be Barcelona, Spain. The reference answer only states 'Madrid', which is the capital of Spain, but the question asks for the city that hosted the Olympics and the country. The candidate's answer is incorrect because it states that Barcelona hosted the Olympics, which is not the case.",
+        "judge_usage": {
+          "input_tokens": 257,
+          "output_tokens": 226,
+          "cost_usd": 0.0,
+          "latency_ms": 3302.861790987663
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 16819.002499978524
+    },
+    {
+      "id": "multi_step_008",
+      "question": "Use distinct web lookups: first identify the country whose capital is Sofia, then find the sea along that country's eastern coast. Which sea is it?",
+      "known_correct_answer": "Black Sea",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the country whose capital is Sofia, then find the sea along that country's eastern coast. Which sea is it?",
+        "status": "answered",
+        "answer": "Sofia is the capital of Bulgaria",
+        "claims": [
+          {
+            "text": "Sofia is the capital of Bulgaria",
+            "source_id": "src_recorded_614ed9c84fae4e46b1cb8b80ff1f3478"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "capital of Sofia"
+            },
+            "source_id": "src_recorded_614ed9c84fae4e46b1cb8b80ff1f3478",
+            "success": true,
+            "error": null,
+            "latency_ms": 2376.242041005753
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "capital of Sofia"
+            },
+            "source_id": "src_recorded_a4be5cbc60434187b83403633f5bbb30",
+            "success": true,
+            "error": null,
+            "latency_ms": 1720.7975000492297
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3598.705417010933
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_614ed9c84fae4e46b1cb8b80ff1f3478",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-008-a",
+                  "title": "Sofia reference",
+                  "snippet": "Sofia is the capital of Bulgaria."
+                }
+              ],
+              "query": "capital of Sofia",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Sofia is capital of which country"
+            },
+            "error": null,
+            "duration_ms": 0.10904099326580763,
+            "created_at": "2026-08-19T02:32:26.289297Z"
+          },
+          {
+            "source_id": "src_recorded_a4be5cbc60434187b83403633f5bbb30",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-008-a",
+                  "title": "Sofia reference",
+                  "snippet": "Sofia is the capital of Bulgaria."
+                }
+              ],
+              "query": "capital of Sofia",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Sofia is capital of which country"
+            },
+            "error": null,
+            "duration_ms": 0.06633304292336106,
+            "created_at": "2026-08-19T02:32:28.012592Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4453,
+          "output_tokens": 224,
+          "cost_usd": 0.0,
+          "latency_ms": 7695.569584029727
+        },
+        "latency_ms": 7704.522249987349,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": false,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "tool contract failed: requires at least two distinct successful web_search calls",
+        "judge_usage": {
+          "input_tokens": 245,
+          "output_tokens": 74,
+          "cost_usd": 0.0,
+          "latency_ms": 1534.4672500505112
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 9238.98950003786
+    },
+    {
+      "id": "multi_step_009",
+      "question": "Use distinct web lookups: first identify the country whose capital is Wellington, then find that country's official currency. What is it?",
+      "known_correct_answer": "New Zealand dollar",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the country whose capital is Wellington, then find that country's official currency. What is it?",
+        "status": "answered",
+        "answer": "Wellington is the capital of New Zealand The New Zealand dollar is the official currency of New Zealand",
+        "claims": [
+          {
+            "text": "Wellington is the capital of New Zealand",
+            "source_id": "src_recorded_86854c08f2814aa9824d4a43e74ce8da"
+          },
+          {
+            "text": "The New Zealand dollar is the official currency of New Zealand",
+            "source_id": "src_recorded_6fde8947f7324633821165f49ce7e11a"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "capital of Wellington"
+            },
+            "source_id": "src_recorded_86854c08f2814aa9824d4a43e74ce8da",
+            "success": true,
+            "error": null,
+            "latency_ms": 3034.7262930008583
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "New Zealand official currency"
+            },
+            "source_id": "src_recorded_6fde8947f7324633821165f49ce7e11a",
+            "success": true,
+            "error": null,
+            "latency_ms": 1699.044041975867
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 4992.048873973545
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_86854c08f2814aa9824d4a43e74ce8da",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-009-a",
+                  "title": "Wellington reference",
+                  "snippet": "Wellington is the capital of New Zealand."
+                }
+              ],
+              "query": "capital of Wellington",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Wellington is capital of which country"
+            },
+            "error": null,
+            "duration_ms": 0.1740839798003435,
+            "created_at": "2026-08-19T02:32:36.190700Z"
+          },
+          {
+            "source_id": "src_recorded_6fde8947f7324633821165f49ce7e11a",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-009-b",
+                  "title": "New Zealand currency",
+                  "snippet": "The New Zealand dollar is the official currency of New Zealand."
+                }
+              ],
+              "query": "New Zealand official currency",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "official currency of New Zealand"
+            },
+            "error": null,
+            "duration_ms": 0.04837499000132084,
+            "created_at": "2026-08-19T02:32:37.893607Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4643,
+          "output_tokens": 324,
+          "cost_usd": 0.0,
+          "latency_ms": 9725.596749980468
+        },
+        "latency_ms": 9739.033124991693,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "The candidate correctly identifies that Wellington is the capital of New Zealand and states that the New Zealand dollar is the official currency. This matches the reference answer of 'New Zealand dollar' without any contradictions or missing information.",
+        "judge_usage": {
+          "input_tokens": 253,
+          "output_tokens": 56,
+          "cost_usd": 0.0,
+          "latency_ms": 1221.984124975279
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10961.017249966972
+    },
+    {
+      "id": "multi_step_010",
+      "question": "Use distinct web lookups: first identify the element named after the planet Uranus, then find the scientist credited with discovering it. What is the scientist's surname?",
+      "known_correct_answer": "Klaproth",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the element named after the planet Uranus, then find the scientist credited with discovering it. What is the scientist's surname?",
+        "status": "answered",
+        "answer": "The element named after the planet Uranus is uranium The scientist credited with discovering uranium is Martin Heinrich Klaproth",
+        "claims": [
+          {
+            "text": "The element named after the planet Uranus is uranium",
+            "source_id": "src_recorded_e7c86f558976499c968da716e975b248"
+          },
+          {
+            "text": "The scientist credited with discovering uranium is Martin Heinrich Klaproth",
+            "source_id": "src_recorded_3306848dad794396ad12858d8836c037"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "element named after planet Uranus"
+            },
+            "source_id": "src_recorded_e7c86f558976499c968da716e975b248",
+            "success": true,
+            "error": null,
+            "latency_ms": 2498.424374964088
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "scientist who discovered element uranium"
+            },
+            "source_id": "src_recorded_3306848dad794396ad12858d8836c037",
+            "success": true,
+            "error": null,
+            "latency_ms": 1647.9619579622522
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 5937.500416010153
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_e7c86f558976499c968da716e975b248",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-010-a",
+                  "title": "Uranus namesake",
+                  "snippet": "The chemical element uranium was named after the planet Uranus."
+                }
+              ],
+              "query": "element named after planet Uranus",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "planet Uranus element namesake"
+            },
+            "error": null,
+            "duration_ms": 0.07212499622255564,
+            "created_at": "2026-08-19T02:32:46.618045Z"
+          },
+          {
+            "source_id": "src_recorded_3306848dad794396ad12858d8836c037",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-010-c",
+                  "title": "Discovery of uranium",
+                  "snippet": "Martin Heinrich Klaproth is credited with discovering uranium in 1789."
+                }
+              ],
+              "query": "scientist who discovered element uranium",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "scientist credited with discovering uranium"
+            },
+            "error": null,
+            "duration_ms": 0.026291003450751305,
+            "created_at": "2026-08-19T02:32:48.268870Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4722,
+          "output_tokens": 403,
+          "cost_usd": 0.0,
+          "latency_ms": 10083.78833293682
+        },
+        "latency_ms": 10094.757832994219,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "judge_error: RuntimeError: Ollama returned invalid _AnswerCorrectness structured output",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10094.757832994219
+    },
+    {
+      "id": "multi_step_011",
+      "question": "Use distinct web lookups: first identify the country where Machu Picchu is located, then find that country's capital. What is it?",
+      "known_correct_answer": "Lima",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the country where Machu Picchu is located, then find that country's capital. What is it?",
+        "status": "answered",
+        "answer": "Machu Picchu is located in Peru Lima is the capital of Peru",
+        "claims": [
+          {
+            "text": "Machu Picchu is located in Peru",
+            "source_id": "src_recorded_0fb0098a0505498397317982659a4433"
+          },
+          {
+            "text": "Lima is the capital of Peru",
+            "source_id": "src_recorded_556e2c5bd74040ebad950086a8f7de87"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Machu Picchu country location"
+            },
+            "source_id": "src_recorded_0fb0098a0505498397317982659a4433",
+            "success": true,
+            "error": null,
+            "latency_ms": 2598.2688749791123
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Peru capital"
+            },
+            "source_id": "src_recorded_556e2c5bd74040ebad950086a8f7de87",
+            "success": true,
+            "error": null,
+            "latency_ms": 1612.6113749924116
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 4696.673790982459
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_0fb0098a0505498397317982659a4433",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-011-a",
+                  "title": "Machu Picchu location",
+                  "snippet": "Machu Picchu is located in Peru."
+                }
+              ],
+              "query": "Machu Picchu country location",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "country where Machu Picchu is located"
+            },
+            "error": null,
+            "duration_ms": 0.08700002217665315,
+            "created_at": "2026-08-19T02:33:04.378913Z"
+          },
+          {
+            "source_id": "src_recorded_556e2c5bd74040ebad950086a8f7de87",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-011-b",
+                  "title": "Peru capital",
+                  "snippet": "Lima is the capital of Peru."
+                }
+              ],
+              "query": "Peru capital",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "capital of Peru"
+            },
+            "error": null,
+            "duration_ms": 0.04258297849446535,
+            "created_at": "2026-08-19T02:33:05.993704Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4668,
+          "output_tokens": 318,
+          "cost_usd": 0.0,
+          "latency_ms": 8907.424457953312
+        },
+        "latency_ms": 8918.985874974169,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "The candidate answer correctly states that Machu Pic: The reference answer is 'Lima', which is the capital of Peru where Machu Picchu is located. The candidate answer provides the country (Peru) and the capital (Lima) without contradiction, and the final answer 'Lima' matches the reference answer.",
+        "judge_usage": {
+          "input_tokens": 249,
+          "output_tokens": 79,
+          "cost_usd": 0.0,
+          "latency_ms": 1508.4410830168054
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10427.426957990974
+    },
+    {
+      "id": "multi_step_012",
+      "question": "Use distinct web lookups: first identify Iceland's capital, then find the element whose symbol matches its first two letters. Which element is it?",
+      "known_correct_answer": "Rhenium",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify Iceland's capital, then find the element whose symbol matches its first two letters. Which element is it?",
+        "status": "insufficient_information",
+        "answer": "insufficient information",
+        "claims": [],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Iceland's capital"
+            },
+            "source_id": "src_recorded_5e48dae951574ded9c65063ad4a33b17",
+            "success": true,
+            "error": null,
+            "latency_ms": 2445.307208050508
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Iceland's capital"
+            },
+            "source_id": "src_recorded_13cc5b7ba842467b8885ecd89b2645f6",
+            "success": true,
+            "error": null,
+            "latency_ms": 1571.08583295485
+          },
+          {
+            "step": 3,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Reykjavik first two letters"
+            },
+            "source_id": "src_recorded_75e2a3fcfd95474d8062246e24d8e9dd",
+            "success": false,
+            "error": "recorded corpus contains no sufficiently similar web query",
+            "latency_ms": 1867.2075410140678
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_5e48dae951574ded9c65063ad4a33b17",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-012-a",
+                  "title": "Iceland capital",
+                  "snippet": "Reykjavik is the capital of Iceland."
+                }
+              ],
+              "query": "Iceland's capital",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "capital of Iceland"
+            },
+            "error": null,
+            "duration_ms": 0.058333040215075016,
+            "created_at": "2026-08-19T02:33:14.655566Z"
+          },
+          {
+            "source_id": "src_recorded_13cc5b7ba842467b8885ecd89b2645f6",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-012-a",
+                  "title": "Iceland capital",
+                  "snippet": "Reykjavik is the capital of Iceland."
+                }
+              ],
+              "query": "Iceland's capital",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "capital of Iceland"
+            },
+            "error": null,
+            "duration_ms": 0.04079198697581887,
+            "created_at": "2026-08-19T02:33:16.229660Z"
+          },
+          {
+            "source_id": "src_recorded_75e2a3fcfd95474d8062246e24d8e9dd",
+            "tool_name": "web_search",
+            "success": false,
+            "content": {
+              "query": "Reykjavik first two letters",
+              "results": [],
+              "retrieval_mode": "recorded_web_corpus"
+            },
+            "error": "recorded corpus contains no sufficiently similar web query",
+            "duration_ms": 0.24829100584611297,
+            "created_at": "2026-08-19T02:33:18.098837Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4257,
+          "output_tokens": 153,
+          "cost_usd": 0.0,
+          "latency_ms": 5883.253165986389
+        },
+        "latency_ms": 5892.3885830445215,
+        "claims_generated": 0,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": false,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "tool contract failed: requires at least two distinct successful web_search calls",
+        "judge_usage": {
+          "input_tokens": 239,
+          "output_tokens": 119,
+          "cost_usd": 0.0,
+          "latency_ms": 2102.385791949928
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7994.774374994449
+    },
+    {
+      "id": "multi_step_013",
+      "question": "Use distinct web lookups: first identify Marie Curie's country of birth, then find that country's capital. What is it?",
+      "known_correct_answer": "Warsaw",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify Marie Curie's country of birth, then find that country's capital. What is it?",
+        "status": "answered",
+        "answer": "Marie Curie was born in Poland",
+        "claims": [
+          {
+            "text": "Marie Curie was born in Poland",
+            "source_id": "src_recorded_e7490bbf0d2c4ba48c95567ca24df707"
+          }
+        ],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Marie Curie's country of birth"
+            },
+            "source_id": "src_recorded_e7490bbf0d2c4ba48c95567ca24df707",
+            "success": true,
+            "error": null,
+            "latency_ms": 2583.339917997364
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Marie Curie's country of birth"
+            },
+            "source_id": "src_recorded_6de4f9ee216b4c6b9c62f927ab23b5c2",
+            "success": true,
+            "error": null,
+            "latency_ms": 1647.819917066954
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 5756.3197509152815
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_e7490bbf0d2c4ba48c95567ca24df707",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-013-a",
+                  "title": "Marie Curie birthplace",
+                  "snippet": "Marie Curie was born in Warsaw."
+                }
+              ],
+              "query": "Marie Curie's country of birth",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Marie Curie birthplace city"
+            },
+            "error": null,
+            "duration_ms": 0.04270899808034301,
+            "created_at": "2026-08-19T02:33:22.788580Z"
+          },
+          {
+            "source_id": "src_recorded_6de4f9ee216b4c6b9c62f927ab23b5c2",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-013-a",
+                  "title": "Marie Curie birthplace",
+                  "snippet": "Marie Curie was born in Warsaw."
+                }
+              ],
+              "query": "Marie Curie's country of birth",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Marie Curie birthplace city"
+            },
+            "error": null,
+            "duration_ms": 0.056750024668872356,
+            "created_at": "2026-08-19T02:33:24.438599Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4675,
+          "output_tokens": 408,
+          "cost_usd": 0.0,
+          "latency_ms": 9987.38012695685
+        },
+        "latency_ms": 9995.87275000522,
+        "claims_generated": 2,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": false,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "tool contract failed: requires at least two distinct successful web_search calls",
+        "judge_usage": {
+          "input_tokens": 241,
+          "output_tokens": 102,
+          "cost_usd": 0.0,
+          "latency_ms": 1828.78870802233
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 11824.661458027549
+    },
+    {
+      "id": "multi_step_014",
+      "question": "Use distinct web lookups: first identify the country containing Lake Bled, then find that country's official currency. What is it?",
+      "known_correct_answer": "Euro",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the country containing Lake Bled, then find that country's official currency. What is it?",
+        "status": "answered",
+        "answer": "Lake Bled is located in Slovenia The euro is the official currency of Slovenia",
+        "claims": [
+          {
+            "text": "Lake Bled is located in Slovenia",
+            "source_id": "src_recorded_31f7aec9713c442f909a531bacb0ce42"
+          },
+          {
+            "text": "The euro is the official currency of Slovenia",
+            "source_id": "src_recorded_24af27b2889c4c9e8fedbf2104fa51f2"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Lake Bled country"
+            },
+            "source_id": "src_recorded_31f7aec9713c442f909a531bacb0ce42",
+            "success": true,
+            "error": null,
+            "latency_ms": 2472.9053339688107
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Slovenia official currency"
+            },
+            "source_id": "src_recorded_24af27b2889c4c9e8fedbf2104fa51f2",
+            "success": true,
+            "error": null,
+            "latency_ms": 1630.8389169862494
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 4652.317540952936
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_31f7aec9713c442f909a531bacb0ce42",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-014-a",
+                  "title": "Lake Bled location",
+                  "snippet": "Lake Bled is located in Slovenia."
+                }
+              ],
+              "query": "Lake Bled country",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "country containing Lake Bled"
+            },
+            "error": null,
+            "duration_ms": 0.06629200652241707,
+            "created_at": "2026-08-19T02:33:34.504402Z"
+          },
+          {
+            "source_id": "src_recorded_24af27b2889c4c9e8fedbf2104fa51f2",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-014-b",
+                  "title": "Slovenia currency",
+                  "snippet": "The euro is the official currency of Slovenia."
+                }
+              ],
+              "query": "Slovenia official currency",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "official currency of Slovenia"
+            },
+            "error": null,
+            "duration_ms": 0.05366699770092964,
+            "created_at": "2026-08-19T02:33:36.137447Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4627,
+          "output_tokens": 314,
+          "cost_usd": 0.0,
+          "latency_ms": 8755.941832903773
+        },
+        "latency_ms": 8765.440415998455,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "The candidate correctly identifies that Lake Bled is in Slovenia and states that the euro is Slovenia's official currency. This matches the reference answer of 'Euro' without any contradictions or additional incompatible information.",
+        "judge_usage": {
+          "input_tokens": 247,
+          "output_tokens": 53,
+          "cost_usd": 0.0,
+          "latency_ms": 1247.035875043366
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10012.476291041821
+    },
+    {
+      "id": "multi_step_015",
+      "question": "Use distinct web lookups: first identify the country whose capital is Nairobi, then find that country's highest mountain. What is it?",
+      "known_correct_answer": "Mount Kenya",
+      "category": "multi_step",
+      "answerable": true,
+      "agent": {
+        "question": "Use distinct web lookups: first identify the country whose capital is Nairobi, then find that country's highest mountain. What is it?",
+        "status": "answered",
+        "answer": "The country whose capital is Nairobi is Kenya The highest mountain in Kenya is Mount Kenya",
+        "claims": [
+          {
+            "text": "The country whose capital is Nairobi is Kenya",
+            "source_id": "src_recorded_3b8f15cea7054bbc8752b98ac397000e"
+          },
+          {
+            "text": "The highest mountain in Kenya is Mount Kenya",
+            "source_id": "src_recorded_f03358f66d614e5186b4f7d959d46b17"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "country whose capital is Nairobi"
+            },
+            "source_id": "src_recorded_3b8f15cea7054bbc8752b98ac397000e",
+            "success": true,
+            "error": null,
+            "latency_ms": 2625.6364589789882
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "highest mountain in Kenya"
+            },
+            "source_id": "src_recorded_f03358f66d614e5186b4f7d959d46b17",
+            "success": true,
+            "error": null,
+            "latency_ms": 1615.583750011865
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 5287.6208340749145
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_3b8f15cea7054bbc8752b98ac397000e",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-015-a",
+                  "title": "Nairobi reference",
+                  "snippet": "Nairobi is the capital of Kenya."
+                }
+              ],
+              "query": "country whose capital is Nairobi",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Nairobi is capital of which country"
+            },
+            "error": null,
+            "duration_ms": 0.0558749889023602,
+            "created_at": "2026-08-19T02:33:44.672397Z"
+          },
+          {
+            "source_id": "src_recorded_f03358f66d614e5186b4f7d959d46b17",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [
+                {
+                  "url": "https://fixtures.local/multi-015-b",
+                  "title": "Mount Kenya",
+                  "snippet": "Mount Kenya is the highest mountain in Kenya."
+                }
+              ],
+              "query": "highest mountain in Kenya",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "highest mountain in Kenya"
+            },
+            "error": null,
+            "duration_ms": 0.03850000211969018,
+            "created_at": "2026-08-19T02:33:46.290268Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4631,
+          "output_tokens": 337,
+          "cost_usd": 0.0,
+          "latency_ms": 9528.746668074746
+        },
+        "latency_ms": 9538.083458028268,
+        "claims_generated": 2,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least two distinct successful web_search calls",
+        "reason": "The candidate correctly identifies that the country with capital Nairobi is Kenya and that Kenya's highest mountain is Mount Kenya, matching the reference answer of 'Mount Kenya'. The candidate provides the required information without adding incompatible details or making errors.",
+        "judge_usage": {
+          "input_tokens": 249,
+          "output_tokens": 59,
+          "cost_usd": 0.0,
+          "latency_ms": 1343.9320840407163
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10882.015542068984
+    },
+    {
+      "id": "computational_001",
+      "question": "What is 37 multiplied by 48?",
+      "known_correct_answer": "1776",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "What is 37 multiplied by 48?",
+        "status": "answered",
+        "answer": "37 multiplied by 48 equals 1776",
+        "claims": [
+          {
+            "text": "37 multiplied by 48 equals 1776",
+            "source_id": "6cb7425b-841c-4e3c-80d4-439aa92e3623"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'37 * 48 = {37 * 48}')"
+            },
+            "source_id": "6cb7425b-841c-4e3c-80d4-439aa92e3623",
+            "success": true,
+            "error": null,
+            "latency_ms": 2777.318583969567
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3182.3695009807125
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "6cb7425b-841c-4e3c-80d4-439aa92e3623",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "37 * 48 = 1776\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 18235392,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 64.045,
+            "created_at": "2026-08-19T02:33:55.730788Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2583,
+          "output_tokens": 201,
+          "cost_usd": 0.0,
+          "latency_ms": 5895.643084950279
+        },
+        "latency_ms": 5993.53054194944,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate answer states that 37 multiplied by 48 equals 1776, which matches the reference answer of 1776. The candidate clearly states the reference answer without any incompatible final answer or additional context that contradicts the reference.",
+        "judge_usage": {
+          "input_tokens": 232,
+          "output_tokens": 67,
+          "cost_usd": 0.0,
+          "latency_ms": 1415.5784160248004
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 7409.10895797424
+    },
+    {
+      "id": "computational_002",
+      "question": "What is the sum of the squares of the integers from 1 through 20, inclusive?",
+      "known_correct_answer": "2870",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "What is the sum of the squares of the integers from 1 through 20, inclusive?",
+        "status": "answered",
+        "answer": "The sum of the squares of the integers from 1 through 20, inclusive is 2870",
+        "claims": [
+          {
+            "text": "The sum of the squares of the integers from 1 through 20, inclusive is 2870",
+            "source_id": "5f15c42a-f90c-4eb8-93a5-2b0626b51d56"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f\"Sum of squares from 1 to 20: {sum(i**2 for i in range(1, 21))}\")"
+            },
+            "source_id": "5f15c42a-f90c-4eb8-93a5-2b0626b51d56",
+            "success": true,
+            "error": null,
+            "latency_ms": 2945.657083036177
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 3553.9888329803944
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "5f15c42a-f90c-4eb8-93a5-2b0626b51d56",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "Sum of squares from 1 to 20: 2870\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 18284544,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 34.541,
+            "created_at": "2026-08-19T02:34:03.286971Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2647,
+          "output_tokens": 229,
+          "cost_usd": 0.0,
+          "latency_ms": 6465.104916016571
+        },
+        "latency_ms": 6505.507166963071,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate answer states that the sum of the squares of the integers from 1 through 20, inclusive is 2870, which matches the reference answer of 2870. The candidate provides the exact value without any additional incompatible information or calculations, and the statement is clear and correct.",
+        "judge_usage": {
+          "input_tokens": 251,
+          "output_tokens": 77,
+          "cost_usd": 0.0,
+          "latency_ms": 1598.9360840176232
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 8104.443250980694
+    },
+    {
+      "id": "computational_003",
+      "question": "Using F(0) = 0 and F(1) = 1, what is F(15) in the Fibonacci sequence?",
+      "known_correct_answer": "610",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "Using F(0) = 0 and F(1) = 1, what is F(15) in the Fibonacci sequence?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'F(15) = {15}th Fibonacci number: {15}')"
+            },
+            "source_id": "d6b54963-d478-475d-a654-7a81395902f0",
+            "success": true,
+            "error": null,
+            "latency_ms": 2948.8580420050175
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 7698.649291938636
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "d6b54963-d478-475d-a654-7a81395902f0",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "F(15) = 15th Fibonacci number: 15\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 18333696,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 49.139,
+            "created_at": "2026-08-19T02:34:11.398935Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2631,
+          "output_tokens": 543,
+          "cost_usd": 0.0,
+          "latency_ms": 10598.368333943654
+        },
+        "latency_ms": 10654.75124999648,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate states they could not verify an answer, but the reference answer is 610. The Fibonacci sequence with F(0)=0 and F(1)=1 follows: F(2)=1, F(3)=2, F(4)=3, F(5)=5, F(6)=8, F(7)=13, F(8)=21, F(9)=34, F(10)=55, F(11)=89, F(12)=144, F(13)=233, F(14)=377, F(15)=610. The candidate did not provide a final answer that matches the reference answer of 610.",
+        "judge_usage": {
+          "input_tokens": 243,
+          "output_tokens": 173,
+          "cost_usd": 0.0,
+          "latency_ms": 2879.139499971643
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 13533.890749968123
+    },
+    {
+      "id": "computational_004",
+      "question": "What is the greatest common divisor of 123456 and 7890?",
+      "known_correct_answer": "6",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "What is the greatest common divisor of 123456 and 7890?",
+        "status": "answered",
+        "answer": "The greatest common divisor of 123456 and 7890 is 6",
+        "claims": [
+          {
+            "text": "The greatest common divisor of 123456 and 7890 is 6",
+            "source_id": "5c551592-8964-4b76-8af9-38a2d315bfcc"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'gcd(123456, 7890)= {math.gcd(123456, 7890)}')"
+            },
+            "source_id": "1e8c1658-f041-4f1c-a589-142000b97d8d",
+            "success": false,
+            "error": "Python exited with code 1",
+            "latency_ms": 3731.4551670122296
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "import math\nprint(f'gcd(123456, 7890)= {math.gcd(123456, 7890)}')"
+            },
+            "source_id": "5c551592-8964-4b76-8af9-38a2d315bfcc",
+            "success": true,
+            "error": null,
+            "latency_ms": 2449.8702500078452
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 4056.0189569951035
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "1e8c1658-f041-4f1c-a589-142000b97d8d",
+            "tool_name": "run_python",
+            "success": false,
+            "content": {
+              "stdout": "",
+              "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 88, in <module>\n  File \"<agent-code>\", line 1, in <module>\nNameError: name 'math' is not defined\n",
+              "exit_code": 1,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 18317312,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": "Python exited with code 1",
+            "duration_ms": 50.489,
+            "created_at": "2026-08-19T02:34:25.718759Z"
+          },
+          {
+            "source_id": "5c551592-8964-4b76-8af9-38a2d315bfcc",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "gcd(123456, 7890)= 6\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 17530880,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 40.615,
+            "created_at": "2026-08-19T02:34:28.172080Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4737,
+          "output_tokens": 317,
+          "cost_usd": 0.0,
+          "latency_ms": 10146.240374015179
+        },
+        "latency_ms": 10250.69270801032,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate answer states that the greatest common divisor of 123456 and 7890 is 6, which matches the reference answer of 6. The candidate clearly states the reference answer without adding incompatible information or making contradictions.",
+        "judge_usage": {
+          "input_tokens": 247,
+          "output_tokens": 65,
+          "cost_usd": 0.0,
+          "latency_ms": 1345.551209000405
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 11596.243917010725
+    },
+    {
+      "id": "computational_005",
+      "question": "How many prime numbers are less than or equal to 100?",
+      "known_correct_answer": "25",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "How many prime numbers are less than or equal to 100?",
+        "status": "answered",
+        "answer": "There are 25 prime numbers less than or equal to 100",
+        "claims": [
+          {
+            "text": "There are 25 prime numbers less than or equal to 100",
+            "source_id": "da440e3e-c0d9-4691-942a-885a32f76b95"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'Number of primes <= 100: {len([n for n in range(1, 101) if all(n % i != 0 for i in range(2, n)])}]')"
+            },
+            "source_id": "8639a3c8-e6c4-4d12-a176-d4a2ed1763ad",
+            "success": false,
+            "error": "Python code rejected by sandbox: invalid syntax on line 1",
+            "latency_ms": 3712.018541975379
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'Number of primes <= 100: {len([n for n in range(2, 101) if all(n % i != 0 for i in range(2, n))])}')"
+            },
+            "source_id": "da440e3e-c0d9-4691-942a-885a32f76b95",
+            "success": true,
+            "error": null,
+            "latency_ms": 2915.6822909845523
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 4769.254332990386
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "8639a3c8-e6c4-4d12-a176-d4a2ed1763ad",
+            "tool_name": "run_python",
+            "success": false,
+            "content": {
+              "stdout": "",
+              "stderr": "",
+              "exit_code": null,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 0,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": "Python code rejected by sandbox: invalid syntax on line 1",
+            "duration_ms": 0.736,
+            "created_at": "2026-08-19T02:34:37.301125Z"
+          },
+          {
+            "source_id": "da440e3e-c0d9-4691-942a-885a32f76b95",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "Number of primes <= 100: 25\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 17760256,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 60.098,
+            "created_at": "2026-08-19T02:34:40.225108Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4647,
+          "output_tokens": 349,
+          "cost_usd": 0.0,
+          "latency_ms": 11336.121165950317
+        },
+        "latency_ms": 11421.551125007682,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate answer states there are 25 prime numbers less than or equal to 100, which matches the reference answer of 25. The candidate provides the exact numerical value without any additional incompatible information or contradictions. The statement is clear and directly corresponds to the reference answer.",
+        "judge_usage": {
+          "input_tokens": 237,
+          "output_tokens": 72,
+          "cost_usd": 0.0,
+          "latency_ms": 1647.3751669982448
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 13068.926292005926
+    },
+    {
+      "id": "computational_006",
+      "question": "If $1,000 earns 5% interest compounded annually for 10 years with no deposits or withdrawals, what is the balance rounded to the nearest cent?",
+      "known_correct_answer": "$1,628.89",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "If $1,000 earns 5% interest compounded annually for 10 years with no deposits or withdrawals, what is the balance rounded to the nearest cent?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'${round(1000 * (1 + 0.05)**10, 2)}')"
+            },
+            "source_id": "fc65ca5d-6ca7-49b8-b909-75c10f80f9cb",
+            "success": true,
+            "error": null,
+            "latency_ms": 3244.6599999898112
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 6544.687249057461
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "fc65ca5d-6ca7-49b8-b909-75c10f80f9cb",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "$1628.89\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 18366464,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 46.1,
+            "created_at": "2026-08-19T02:34:49.901913Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2647,
+          "output_tokens": 381,
+          "cost_usd": 0.0,
+          "latency_ms": 9743.247249047272
+        },
+        "latency_ms": 9804.115583014209,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate states they could not verify an answer, which does not provide the required final answer. The reference answer is $1,628.89, but the candidate did not state this value or an equivalent value. The candidate's response is missing the required final answer and does not match the reference answer.",
+        "judge_usage": {
+          "input_tokens": 255,
+          "output_tokens": 78,
+          "cost_usd": 0.0,
+          "latency_ms": 1987.7425409504212
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 11791.85812396463
+    },
+    {
+      "id": "computational_007",
+      "question": "What is the median of the numbers 3, 7, 8, 12, 14, 18, and 21?",
+      "known_correct_answer": "12",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "What is the median of the numbers 3, 7, 8, 12, 14, 18, and 21?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "judge_error",
+            "detail": "The citation check did not complete, so the claim was removed."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f\"Median: {statistics.median([3, 7, 8, 12, 14, 18, 21])}\")"
+            },
+            "source_id": "e461df43-8cb4-46e8-af9a-f42fa6ab017c",
+            "success": false,
+            "error": "Python exited with code 1",
+            "latency_ms": 3505.678332988452
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "import statistics\nprint(f\"Median: {statistics.median([3, 7, 8, 12, 14, 18, 21])}\")"
+            },
+            "source_id": "abbfd357-ca47-47f7-b396-ed3b72148925",
+            "success": true,
+            "error": null,
+            "latency_ms": 2854.5502910210525
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 3850.1917910180055
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "e461df43-8cb4-46e8-af9a-f42fa6ab017c",
+            "tool_name": "run_python",
+            "success": false,
+            "content": {
+              "stdout": "",
+              "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 88, in <module>\n  File \"<agent-code>\", line 1, in <module>\nNameError: name 'statistics' is not defined\n",
+              "exit_code": 1,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 18333696,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": "Python exited with code 1",
+            "duration_ms": 50.95,
+            "created_at": "2026-08-19T02:35:01.960375Z"
+          },
+          {
+            "source_id": "abbfd357-ca47-47f7-b396-ed3b72148925",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "Median: 12\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 16842752,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 46.249,
+            "created_at": "2026-08-19T02:35:04.819917Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4518,
+          "output_tokens": 281,
+          "cost_usd": 0.0,
+          "latency_ms": 10113.22141502751
+        },
+        "latency_ms": 18481.55329201836,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The reference answer states the median is 12. The candidate answer says 'I could not verify an answer.' This does not state the reference answer or an equivalent value. The candidate does not provide a final answer that matches the reference answer.",
+        "judge_usage": {
+          "input_tokens": 246,
+          "output_tokens": 63,
+          "cost_usd": 0.0,
+          "latency_ms": 1523.3913330012
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 20004.94462501956
+    },
+    {
+      "id": "computational_008",
+      "question": "What is 2 raised to the 20th power?",
+      "known_correct_answer": "1048576",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "What is 2 raised to the 20th power?",
+        "status": "answered",
+        "answer": "2 raised to the 20th power is 1048576",
+        "claims": [
+          {
+            "text": "2 raised to the 20th power is 1048576",
+            "source_id": "d4706375-642c-4cd9-a323-5c71da069296"
+          }
+        ],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'2^20 = {2**20}')"
+            },
+            "source_id": "d4706375-642c-4cd9-a323-5c71da069296",
+            "success": true,
+            "error": null,
+            "latency_ms": 2833.1574580100923
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 4167.335500067566
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "d4706375-642c-4cd9-a323-5c71da069296",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "2^20 = 1048576\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 16957440,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 30.04,
+            "created_at": "2026-08-19T02:35:21.300014Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2584,
+          "output_tokens": 236,
+          "cost_usd": 0.0,
+          "latency_ms": 6970.452958077658
+        },
+        "latency_ms": 7010.978250007611,
+        "claims_generated": 1,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "answer_correct": true,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate answer states that 2 raised to the 20th power is 1048576, which matches the reference answer exactly. The candidate provides the correct numerical value without any additional incompatible information or errors.",
+        "judge_usage": {
+          "input_tokens": 242,
+          "output_tokens": 61,
+          "cost_usd": 0.0,
+          "latency_ms": 1419.9398329947144
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 8430.918083002325
+    },
+    {
+      "id": "computational_009",
+      "question": "How many ordered arrangements of 3 distinct objects can be selected from 10 distinct objects without replacement?",
+      "known_correct_answer": "720",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "How many ordered arrangements of 3 distinct objects can be selected from 10 distinct objects without replacement?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "failed_source",
+            "detail": "The cited tool source did not complete successfully."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'Permutations of 3 from 10: {math.perm(10, 3)}')"
+            },
+            "source_id": "d76c04e3-5d2b-4f8e-8b88-aa68125cbaad",
+            "success": false,
+            "error": "Python exited with code 1",
+            "latency_ms": 2977.3794590272455
+          },
+          {
+            "step": 2,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "permutations of 3 distinct objects from 10 distinct objects without replacement"
+            },
+            "source_id": "src_recorded_793dfccfd4b04b1695a5c39a0de26b5e",
+            "success": false,
+            "error": "recorded corpus has no web entries for this benchmark question",
+            "latency_ms": 2241.70104105724
+          },
+          {
+            "step": 3,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 3199.8789169592783
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "d76c04e3-5d2b-4f8e-8b88-aa68125cbaad",
+            "tool_name": "run_python",
+            "success": false,
+            "content": {
+              "stdout": "",
+              "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 88, in <module>\n  File \"<agent-code>\", line 1, in <module>\nNameError: name 'math' is not defined\n",
+              "exit_code": 1,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 17874944,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": "Python exited with code 1",
+            "duration_ms": 43.227,
+            "created_at": "2026-08-19T02:35:29.871451Z"
+          },
+          {
+            "source_id": "src_recorded_793dfccfd4b04b1695a5c39a0de26b5e",
+            "tool_name": "web_search",
+            "success": false,
+            "content": {
+              "query": "permutations of 3 distinct objects from 10 distinct objects without replacement",
+              "results": [],
+              "retrieval_mode": "recorded_web_corpus"
+            },
+            "error": "recorded corpus has no web entries for this benchmark question",
+            "duration_ms": 0.24620804470032454,
+            "created_at": "2026-08-19T02:35:32.115133Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 4433,
+          "output_tokens": 240,
+          "cost_usd": 0.0,
+          "latency_ms": 8375.486208999064
+        },
+        "latency_ms": 8427.861167001538,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": false,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "tool contract failed: requires at least one successful run_python call",
+        "judge_usage": {
+          "input_tokens": 235,
+          "output_tokens": 113,
+          "cost_usd": 0.0,
+          "latency_ms": 2326.930875016842
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 10754.79204201838
+    },
+    {
+      "id": "computational_010",
+      "question": "Convert 98.6 degrees Fahrenheit to degrees Celsius.",
+      "known_correct_answer": "37 degrees Celsius",
+      "category": "computational",
+      "answerable": true,
+      "agent": {
+        "question": "Convert 98.6 degrees Fahrenheit to degrees Celsius.",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "run_python",
+            "arguments": {
+              "code": "print(f'\\nCelsius = ({98.6} - 32) * 5/9\\n')"
+            },
+            "source_id": "7ab00998-94c9-4a8a-846d-5f760c9f32d9",
+            "success": true,
+            "error": null,
+            "latency_ms": 3319.0175419842712
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 4901.494124962483
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "7ab00998-94c9-4a8a-846d-5f760c9f32d9",
+            "tool_name": "run_python",
+            "success": true,
+            "content": {
+              "stdout": "\nCelsius = (98.6 - 32) * 5/9\n\n",
+              "stderr": "",
+              "exit_code": 0,
+              "timed_out": false,
+              "memory_limit_exceeded": false,
+              "peak_rss_bytes": 18186240,
+              "stdout_truncated": false,
+              "stderr_truncated": false
+            },
+            "error": null,
+            "duration_ms": 64.337,
+            "created_at": "2026-08-19T02:35:40.974437Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2625,
+          "output_tokens": 251,
+          "cost_usd": 0.0,
+          "latency_ms": 8156.174666946754
+        },
+        "latency_ms": 8279.937833023723,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": false,
+        "answer_correct": false,
+        "tool_contract_satisfied": true,
+        "tool_contract": "requires at least one successful run_python call",
+        "reason": "The candidate states they could not verify an answer, but the reference answer is 37 degrees Celsius. The candidate did not provide a final answer that matches the reference answer. The reference answer is a well-known conversion (98.6°F = 37°C), so the candidate's statement indicates they did not attempt to provide the correct answer.",
+        "judge_usage": {
+          "input_tokens": 227,
+          "output_tokens": 85,
+          "cost_usd": 0.0,
+          "latency_ms": 1633.8230420369655
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 9913.760875060689
+    },
+    {
+      "id": "unanswerable_001",
+      "question": "What serial number was engraved on the pocket watch carried by the fictional explorer Dr. Elian Voss during the unpublished Nacre-9 expedition?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What serial number was engraved on the pocket watch carried by the fictional explorer Dr. Elian Voss during the unpublished Nacre-9 expedition?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Dr. Elian Voss Nacre-9 expedition pocket watch serial number"
+            },
+            "source_id": "src_recorded_c5094f2665104ae9b92dd89f563c6a00",
+            "success": true,
+            "error": null,
+            "latency_ms": 2662.428167008329
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 3489.505083009135
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_c5094f2665104ae9b92dd89f563c6a00",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "Dr. Elian Voss Nacre-9 expedition pocket watch serial number",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Dr Elian Voss Nacre-9 expedition pocket watch serial number"
+            },
+            "error": null,
+            "duration_ms": 0.04549999721348286,
+            "created_at": "2026-08-19T02:35:50.231793Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2606,
+          "output_tokens": 220,
+          "cost_usd": 0.0,
+          "latency_ms": 6151.887750020251
+        },
+        "latency_ms": 6158.306458964944,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6158.306458964944
+    },
+    {
+      "id": "unanswerable_002",
+      "question": "What did the fictional private citizen Mara Kestrel eat for breakfast in her apartment on 14 March 1997?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What did the fictional private citizen Mara Kestrel eat for breakfast in her apartment on 14 March 1997?",
+        "status": "declined",
+        "answer": "insufficient information",
+        "claims": [],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Mara Kestrel breakfast 14 March 1997"
+            },
+            "source_id": "src_recorded_235822c5580042479d2a3a0cda2b9e3b",
+            "success": true,
+            "error": null,
+            "latency_ms": 2415.3148339828476
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 2148.652874981053
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_235822c5580042479d2a3a0cda2b9e3b",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "Mara Kestrel breakfast 14 March 1997",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Mara Kestrel breakfast 14 March 1997"
+            },
+            "error": null,
+            "duration_ms": 0.04570902092382312,
+            "created_at": "2026-08-19T02:35:56.142201Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2449,
+          "output_tokens": 142,
+          "cost_usd": 0.0,
+          "latency_ms": 4563.921999942977
+        },
+        "latency_ms": 4568.435875000432,
+        "claims_generated": 0,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 4568.435875000432
+    },
+    {
+      "id": "unanswerable_003",
+      "question": "What exact random seed was used to train the fictional unreleased private model Orchid-77?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What exact random seed was used to train the fictional unreleased private model Orchid-77?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "exact random seed used to train fictional unreleased private model Orchid-77"
+            },
+            "source_id": "src_recorded_29c78d12059543f8b271eab30748d28f",
+            "success": true,
+            "error": null,
+            "latency_ms": 1211.242291959934
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 4933.746166003402
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_29c78d12059543f8b271eab30748d28f",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "exact random seed used to train fictional unreleased private model Orchid-77",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "unreleased private model Orchid-77 documentation"
+            },
+            "error": null,
+            "duration_ms": 0.050875009037554264,
+            "created_at": "2026-08-19T02:35:59.507839Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2591,
+          "output_tokens": 284,
+          "cost_usd": 0.0,
+          "latency_ms": 6144.937582954299
+        },
+        "latency_ms": 6153.165625000838,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6153.165625000838
+    },
+    {
+      "id": "unanswerable_004",
+      "question": "What is the final sentence of the unpublished diary of the fictional navigator Sera Vale?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What is the final sentence of the unpublished diary of the fictional navigator Sera Vale?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "final sentence of the unpublished diary of the fictional navigator Sera Vale"
+            },
+            "source_id": "src_recorded_e2b61d7b3ee146779226bd9398cdb36d",
+            "success": true,
+            "error": null,
+            "latency_ms": 2757.437666063197
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 4067.9172090021893
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_e2b61d7b3ee146779226bd9398cdb36d",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "final sentence of the unpublished diary of the fictional navigator Sera Vale",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "unpublished diary fictional navigator Sera Vale"
+            },
+            "error": null,
+            "duration_ms": 0.10883301729336381,
+            "created_at": "2026-08-19T02:36:07.209597Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2556,
+          "output_tokens": 202,
+          "cost_usd": 0.0,
+          "latency_ms": 6825.246042048093
+        },
+        "latency_ms": 6839.452249987517,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6839.452249987517
+    },
+    {
+      "id": "unanswerable_005",
+      "question": "Who will win the fictional 2039 Lunar Chess Championship in Selene City?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "Who will win the fictional 2039 Lunar Chess Championship in Selene City?",
+        "status": "declined",
+        "answer": "insufficient information",
+        "claims": [],
+        "deletions": [],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "2039 Lunar Chess Championship Selene City winner"
+            },
+            "source_id": "src_recorded_3357d40ebfaf40a6981ed94b7b050b21",
+            "success": true,
+            "error": null,
+            "latency_ms": 2722.0648740185425
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": true,
+            "error": null,
+            "latency_ms": 2000.6414580275305
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_3357d40ebfaf40a6981ed94b7b050b21",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "2039 Lunar Chess Championship Selene City winner",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "2039 Lunar Chess Championship Selene City winner"
+            },
+            "error": null,
+            "duration_ms": 0.15491602243855596,
+            "created_at": "2026-08-19T02:36:14.016294Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2406,
+          "output_tokens": 112,
+          "cost_usd": 0.0,
+          "latency_ms": 4722.551416023634
+        },
+        "latency_ms": 4731.469499995001,
+        "claims_generated": 0,
+        "claims_deleted": 0
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 4731.469499995001
+    },
+    {
+      "id": "unanswerable_006",
+      "question": "What was the exact content of a private encrypted message sent between the fictional people Aro Pell and Nima Quill on 8 May 2008?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What was the exact content of a private encrypted message sent between the fictional people Aro Pell and Nima Quill on 8 May 2008?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "private encrypted message between fictional people Aro Pell and Nima Quill on 8 May 2008"
+            },
+            "source_id": "src_recorded_631edbafe98d44da910e44c16bd6448c",
+            "success": true,
+            "error": null,
+            "latency_ms": 1383.5626660729758
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 5034.503748989664
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_631edbafe98d44da910e44c16bd6448c",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "private encrypted message between fictional people Aro Pell and Nima Quill on 8 May 2008",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Aro Pell Nima Quill encrypted message 8 May 2008"
+            },
+            "error": null,
+            "duration_ms": 0.055458047427237034,
+            "created_at": "2026-08-19T02:36:17.408444Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2645,
+          "output_tokens": 236,
+          "cost_usd": 0.0,
+          "latency_ms": 6418.010957015213
+        },
+        "latency_ms": 6428.529083030298,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6428.529083030298
+    },
+    {
+      "id": "unanswerable_007",
+      "question": "How many grains of sand are in the sealed, unmeasured jar labeled K-19 in the fictional Northbridge private collection?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "How many grains of sand are in the sealed, unmeasured jar labeled K-19 in the fictional Northbridge private collection?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "How many grains of sand are in the sealed, unmeasured jar labeled K-19 in the fictional Northbridge private collection"
+            },
+            "source_id": "src_recorded_29d270ba856542078ca220c736b46865",
+            "success": true,
+            "error": null,
+            "latency_ms": 2597.4613340222277
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 3635.098082071636
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_29d270ba856542078ca220c736b46865",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "How many grains of sand are in the sealed, unmeasured jar labeled K-19 in the fictional Northbridge private collection",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Northbridge private collection jar K-19 sand grain count"
+            },
+            "error": null,
+            "duration_ms": 0.055750017054378986,
+            "created_at": "2026-08-19T02:36:25.051716Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2642,
+          "output_tokens": 222,
+          "cost_usd": 0.0,
+          "latency_ms": 6232.503666076809
+        },
+        "latency_ms": 6239.91737497272,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6239.91737497272
+    },
+    {
+      "id": "unanswerable_008",
+      "question": "What objects are inside the fictional Helios Academy time capsule that is sealed and not scheduled to be opened until 2120?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What objects are inside the fictional Helios Academy time capsule that is sealed and not scheduled to be opened until 2120?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Helios Academy time capsule 2120 contents"
+            },
+            "source_id": "src_recorded_9988e85b573f408789ab6628782bf8c6",
+            "success": true,
+            "error": null,
+            "latency_ms": 2537.5002080691047
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 5582.701416977216
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_9988e85b573f408789ab6628782bf8c6",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "Helios Academy time capsule 2120 contents",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Helios Academy time capsule contents open 2120"
+            },
+            "error": null,
+            "duration_ms": 0.056750024668872356,
+            "created_at": "2026-08-19T02:36:31.232592Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2592,
+          "output_tokens": 382,
+          "cost_usd": 0.0,
+          "latency_ms": 8120.144875021651
+        },
+        "latency_ms": 8129.493249987718,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 8129.493249987718
+    },
+    {
+      "id": "unanswerable_009",
+      "question": "What exact revenue value appears in the unpublished internal 2031 forecast of the fictional private company Brindle Arc?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What exact revenue value appears in the unpublished internal 2031 forecast of the fictional private company Brindle Arc?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "unpublished internal 2031 forecast Brindle Arc revenue value"
+            },
+            "source_id": "src_recorded_41281f29465547e2b8b8512f3f057c67",
+            "success": true,
+            "error": null,
+            "latency_ms": 2534.363541053608
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 3579.7480840119533
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_41281f29465547e2b8b8512f3f057c67",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "unpublished internal 2031 forecast Brindle Arc revenue value",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Brindle Arc internal 2031 revenue forecast"
+            },
+            "error": null,
+            "duration_ms": 0.08525000885128975,
+            "created_at": "2026-08-19T02:36:39.359506Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2610,
+          "output_tokens": 226,
+          "cost_usd": 0.0,
+          "latency_ms": 6114.02637505671
+        },
+        "latency_ms": 6120.221708028112,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6120.221708028112
+    },
+    {
+      "id": "unanswerable_010",
+      "question": "What color socks did the fictional private citizen Ivo Meran wear during an unrecorded meeting on 2 February 2004?",
+      "known_correct_answer": "No publicly verifiable answer exists.",
+      "category": "unanswerable",
+      "answerable": false,
+      "agent": {
+        "question": "What color socks did the fictional private citizen Ivo Meran wear during an unrecorded meeting on 2 February 2004?",
+        "status": "unverified",
+        "answer": "I could not verify an answer.",
+        "claims": [],
+        "deletions": [
+          {
+            "reason": "unsupported_by_source",
+            "detail": "The cited source did not support the generated claim."
+          }
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "tool_call",
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Ivo Meran socks color 2 February 2004 unrecorded meeting"
+            },
+            "source_id": "src_recorded_2a7e610fc36a42f0bb4f09ccac0165c7",
+            "success": true,
+            "error": null,
+            "latency_ms": 2624.6862079715356
+          },
+          {
+            "step": 2,
+            "action": "final",
+            "tool_name": null,
+            "arguments": {},
+            "source_id": null,
+            "success": false,
+            "error": null,
+            "latency_ms": 3495.274499000516
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "src_recorded_2a7e610fc36a42f0bb4f09ccac0165c7",
+            "tool_name": "web_search",
+            "success": true,
+            "content": {
+              "results": [],
+              "note": "No matching public source was found.",
+              "query": "Ivo Meran socks color 2 February 2004 unrecorded meeting",
+              "retrieval_mode": "recorded_web_corpus",
+              "recorded_query": "Ivo Meran socks 2 February 2004 meeting"
+            },
+            "error": null,
+            "duration_ms": 0.07299997378140688,
+            "created_at": "2026-08-19T02:36:45.570888Z"
+          }
+        ],
+        "max_steps": 3,
+        "usage": {
+          "input_tokens": 2614,
+          "output_tokens": 225,
+          "cost_usd": 0.0,
+          "latency_ms": 6119.88770699827
+        },
+        "latency_ms": 6125.9222910157405,
+        "claims_generated": 1,
+        "claims_deleted": 1
+      },
+      "evaluation": {
+        "correct": true,
+        "confident_answer": false,
+        "reason": "agent declined or returned insufficient information",
+        "judge_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0
+        }
+      },
+      "estimated_cost_usd": 0.0,
+      "total_latency_ms": 6125.9222910157405
+    }
+  ]
+}

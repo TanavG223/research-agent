@@ -1,0 +1,1454 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "factual_001",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "chemical symbol for gold"},
+          "result": {
+            "source_id": "offline-factual-001-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-001", "title": "Gold reference", "snippet": "Gold has the chemical symbol Au."}
+              ]
+            }
+          }
+        }
+      ],
+      "generated_claims": [
+        {"text": "The chemical symbol for gold is Au.", "source_id": "offline-factual-001-s1"},
+        {"text": "Gold always has exactly 100 neutrons.", "source_id": "offline-factual-001-s1"}
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The chemical symbol for gold is Au.", "source_id": "offline-factual-001-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_002",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "author of Pride and Prejudice"},
+          "result": {
+            "source_id": "offline-factual-002-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-002", "title": "Pride and Prejudice reference", "snippet": "Jane Austen wrote the novel Pride and Prejudice."}
+              ]
+            }
+          }
+        }
+      ],
+      "generated_claims": [
+        {"text": "Pride and Prejudice was written by Jane Austen.", "source_id": "offline-factual-002-s1"},
+        {"text": "The novel was first published on a Tuesday.", "source_id": "offline-source-does-not-exist"}
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Pride and Prejudice was written by Jane Austen.", "source_id": "offline-factual-002-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_003",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "capital of Japan"},
+          "result": {
+            "source_id": "offline-factual-003-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-003", "title": "Japan reference", "snippet": "Tokyo is the capital of Japan."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The capital of Japan is Tokyo.", "source_id": "offline-factual-003-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_004",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "largest planet in the Solar System"},
+          "result": {
+            "source_id": "offline-factual-004-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-004", "title": "Solar System planets", "snippet": "Jupiter is the largest planet in the Solar System."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Jupiter is the largest planet in the Solar System.", "source_id": "offline-factual-004-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_005",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "year Apollo 11 landed humans on the Moon"},
+          "result": {
+            "source_id": "offline-factual-005-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-005", "title": "Apollo 11 timeline", "snippet": "Apollo 11 landed the first humans on the Moon in 1969."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Apollo 11 first landed humans on the Moon in 1969.", "source_id": "offline-factual-005-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_006",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "largest ocean on Earth"},
+          "result": {
+            "source_id": "offline-factual-006-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-006", "title": "Earth oceans", "snippet": "The Pacific Ocean is the largest ocean on Earth."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The Pacific Ocean is the largest ocean on Earth.", "source_id": "offline-factual-006-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_007",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "number of chambers in a human heart"},
+          "result": {
+            "source_id": "offline-factual-007-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-007", "title": "Human heart anatomy", "snippet": "A typical human heart has four chambers."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "A typical human heart has four chambers.", "source_id": "offline-factual-007-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_008",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "element with atomic number 6"},
+          "result": {
+            "source_id": "offline-factual-008-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-008", "title": "Carbon reference", "snippet": "Carbon is the chemical element with atomic number 6."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The element with atomic number 6 is Carbon.", "source_id": "offline-factual-008-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_009",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "painter of The Starry Night"},
+          "result": {
+            "source_id": "offline-factual-009-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-009", "title": "The Starry Night", "snippet": "Vincent van Gogh painted The Starry Night."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The Starry Night was painted by Vincent van Gogh.", "source_id": "offline-factual-009-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_010",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "currency of Switzerland"},
+          "result": {
+            "source_id": "offline-factual-010-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-010", "title": "Switzerland currency", "snippet": "The currency of Switzerland is the Swiss franc."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The currency of Switzerland is the Swiss franc.", "source_id": "offline-factual-010-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_011",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "official language of Brazil"},
+          "result": {
+            "source_id": "offline-factual-011-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-011", "title": "Brazil language", "snippet": "Portuguese is the official language used nationally in Brazil."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Portuguese is the official language used nationally in Brazil.", "source_id": "offline-factual-011-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_012",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "first element in periodic table"},
+          "result": {
+            "source_id": "offline-factual-012-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-012", "title": "Periodic table", "snippet": "Hydrogen is the first element in the periodic table."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Hydrogen is the first element in the periodic table.", "source_id": "offline-factual-012-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_013",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "year Treaty of Versailles signed"},
+          "result": {
+            "source_id": "offline-factual-013-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-013", "title": "Treaty of Versailles", "snippet": "The Treaty of Versailles was signed in 1919."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The Treaty of Versailles was signed in 1919.", "source_id": "offline-factual-013-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_014",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "tallest mountain above sea level"},
+          "result": {
+            "source_id": "offline-factual-014-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-014", "title": "Mount Everest", "snippet": "Mount Everest is the tallest mountain above sea level."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Mount Everest is the tallest mountain above sea level.", "source_id": "offline-factual-014-s1"}
+        ]
+      }
+    },
+    {
+      "id": "factual_015",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "boiling point pure water one standard atmosphere Celsius"},
+          "result": {
+            "source_id": "offline-factual-015-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/factual-015", "title": "Water boiling point", "snippet": "At one standard atmosphere, pure water boils at 100 degrees Celsius."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "At one standard atmosphere, pure water boils at 100 degrees Celsius.", "source_id": "offline-factual-015-s1"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_001",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "number of permanent members United Nations Security Council"},
+          "result": {
+            "source_id": "offline-multi-001-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-001-a", "title": "UN Security Council membership", "snippet": "The United Nations Security Council has five permanent members."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "chemical element atomic number 5"},
+          "result": {
+            "source_id": "offline-multi-001-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-001-b", "title": "Boron reference", "snippet": "Boron is the chemical element with atomic number 5."}
+              ]
+            }
+          }
+        }
+      ],
+      "generated_claims": [
+        {"text": "The element is Boron.", "source_id": "offline-multi-001-s2"},
+        {"text": "There are six permanent members of the UN Security Council.", "source_id": "offline-multi-001-s1"}
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The element is Boron.", "source_id": "offline-multi-001-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_002",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "country flag centered red maple leaf"},
+          "result": {
+            "source_id": "offline-multi-002-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-002-a", "title": "Flag of Canada", "snippet": "Canada's national flag has a centered red maple leaf."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "capital of Canada"},
+          "result": {
+            "source_id": "offline-multi-002-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-002-b", "title": "Canada capital", "snippet": "Ottawa is the capital of Canada."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The capital is Ottawa.", "source_id": "offline-multi-002-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_003",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "novel protagonist Winston Smith"},
+          "result": {
+            "source_id": "offline-multi-003-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-003-a", "title": "Winston Smith", "snippet": "Winston Smith is the protagonist of the novel Nineteen Eighty-Four, also titled 1984."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "author of Nineteen Eighty-Four"},
+          "result": {
+            "source_id": "offline-multi-003-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-003-b", "title": "Nineteen Eighty-Four", "snippet": "George Orwell wrote Nineteen Eighty-Four."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The author is George Orwell.", "source_id": "offline-multi-003-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_004",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "country where Angkor Wat is located"},
+          "result": {
+            "source_id": "offline-multi-004-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-004-a", "title": "Angkor Wat location", "snippet": "Angkor Wat is located in Cambodia."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "official currency of Cambodia"},
+          "result": {
+            "source_id": "offline-multi-004-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-004-b", "title": "Cambodia currency", "snippet": "The Cambodian riel is the official currency of Cambodia."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The official currency is the Cambodian riel.", "source_id": "offline-multi-004-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_005",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "host city 2016 Summer Olympics"},
+          "result": {
+            "source_id": "offline-multi-005-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-005-a", "title": "2016 Summer Olympics", "snippet": "Rio de Janeiro hosted the 2016 Summer Olympics."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "country containing Rio de Janeiro"},
+          "result": {
+            "source_id": "offline-multi-005-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-005-b", "title": "Rio de Janeiro location", "snippet": "Rio de Janeiro is a city in Brazil."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "official language of Brazil"},
+          "result": {
+            "source_id": "offline-multi-005-s3",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-005-c", "title": "Brazil language", "snippet": "Portuguese is the official language used nationally in Brazil."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The official language is Portuguese.", "source_id": "offline-multi-005-s3"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_006",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "author of Hamlet"},
+          "result": {
+            "source_id": "offline-multi-006-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-006-a", "title": "Hamlet author", "snippet": "William Shakespeare wrote Hamlet."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "number of letters in Shakespeare"},
+          "result": {
+            "source_id": "offline-multi-006-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-006-b", "title": "Shakespeare spelling", "snippet": "The surname Shakespeare is spelled with 11 letters."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "element with atomic number 11"},
+          "result": {
+            "source_id": "offline-multi-006-s3",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-006-c", "title": "Sodium reference", "snippet": "Sodium is the chemical element with atomic number 11."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "chemical symbol of sodium"},
+          "result": {
+            "source_id": "offline-multi-006-s4",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-006-d", "title": "Sodium symbol", "snippet": "The chemical symbol of sodium is Na."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The chemical symbol is Na.", "source_id": "offline-multi-006-s4"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_007",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "host city 1992 Summer Olympics"},
+          "result": {
+            "source_id": "offline-multi-007-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-007-a", "title": "1992 Summer Olympics", "snippet": "Barcelona hosted the 1992 Summer Olympics."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "country containing Barcelona"},
+          "result": {
+            "source_id": "offline-multi-007-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-007-b", "title": "Barcelona location", "snippet": "Barcelona is a city in Spain."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "capital of Spain"},
+          "result": {
+            "source_id": "offline-multi-007-s3",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-007-c", "title": "Spain capital", "snippet": "Madrid is the capital of Spain."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The capital is Madrid.", "source_id": "offline-multi-007-s3"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_008",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Sofia is capital of which country"},
+          "result": {
+            "source_id": "offline-multi-008-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-008-a", "title": "Sofia reference", "snippet": "Sofia is the capital of Bulgaria."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "sea east of Bulgaria"},
+          "result": {
+            "source_id": "offline-multi-008-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-008-b", "title": "Bulgaria geography", "snippet": "The Black Sea lies along Bulgaria's eastern border."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The sea is the Black Sea.", "source_id": "offline-multi-008-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_009",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Wellington is capital of which country"},
+          "result": {
+            "source_id": "offline-multi-009-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-009-a", "title": "Wellington reference", "snippet": "Wellington is the capital of New Zealand."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "official currency of New Zealand"},
+          "result": {
+            "source_id": "offline-multi-009-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-009-b", "title": "New Zealand currency", "snippet": "The New Zealand dollar is the official currency of New Zealand."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The official currency is the New Zealand dollar.", "source_id": "offline-multi-009-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_010",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "planet Uranus element namesake"},
+          "result": {
+            "source_id": "offline-multi-010-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-010-a", "title": "Uranus namesake", "snippet": "The chemical element uranium was named after the planet Uranus."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "chemical element named after Uranus"},
+          "result": {
+            "source_id": "offline-multi-010-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-010-b", "title": "Uranium naming", "snippet": "Uranium is the element named after Uranus."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "scientist credited with discovering uranium"},
+          "result": {
+            "source_id": "offline-multi-010-s3",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-010-c", "title": "Discovery of uranium", "snippet": "Martin Heinrich Klaproth is credited with discovering uranium in 1789."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The scientist's surname is Klaproth.", "source_id": "offline-multi-010-s3"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_011",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "country where Machu Picchu is located"},
+          "result": {
+            "source_id": "offline-multi-011-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-011-a", "title": "Machu Picchu location", "snippet": "Machu Picchu is located in Peru."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "capital of Peru"},
+          "result": {
+            "source_id": "offline-multi-011-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-011-b", "title": "Peru capital", "snippet": "Lima is the capital of Peru."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The capital is Lima.", "source_id": "offline-multi-011-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_012",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "capital of Iceland"},
+          "result": {
+            "source_id": "offline-multi-012-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-012-a", "title": "Iceland capital", "snippet": "Reykjavik is the capital of Iceland."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "chemical element symbol Re"},
+          "result": {
+            "source_id": "offline-multi-012-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-012-b", "title": "Rhenium reference", "snippet": "Rhenium is the chemical element with the symbol Re."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The element is Rhenium.", "source_id": "offline-multi-012-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_013",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Marie Curie birthplace city"},
+          "result": {
+            "source_id": "offline-multi-013-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-013-a", "title": "Marie Curie birthplace", "snippet": "Marie Curie was born in Warsaw."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "country containing Warsaw"},
+          "result": {
+            "source_id": "offline-multi-013-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-013-b", "title": "Warsaw location", "snippet": "Warsaw is a city in Poland."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "capital of Poland"},
+          "result": {
+            "source_id": "offline-multi-013-s3",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-013-c", "title": "Poland capital", "snippet": "Warsaw is the capital of Poland."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The capital is Warsaw.", "source_id": "offline-multi-013-s3"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_014",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "country containing Lake Bled"},
+          "result": {
+            "source_id": "offline-multi-014-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-014-a", "title": "Lake Bled location", "snippet": "Lake Bled is located in Slovenia."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "official currency of Slovenia"},
+          "result": {
+            "source_id": "offline-multi-014-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-014-b", "title": "Slovenia currency", "snippet": "The euro is the official currency of Slovenia."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The official currency is the Euro.", "source_id": "offline-multi-014-s2"}
+        ]
+      }
+    },
+    {
+      "id": "multi_step_015",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Nairobi is capital of which country"},
+          "result": {
+            "source_id": "offline-multi-015-s1",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-015-a", "title": "Nairobi reference", "snippet": "Nairobi is the capital of Kenya."}
+              ]
+            }
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "highest mountain in Kenya"},
+          "result": {
+            "source_id": "offline-multi-015-s2",
+            "success": true,
+            "raw_content": {
+              "results": [
+                {"url": "https://fixtures.local/multi-015-b", "title": "Mount Kenya", "snippet": "Mount Kenya is the highest mountain in Kenya."}
+              ]
+            }
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The highest mountain is Mount Kenya.", "source_id": "offline-multi-015-s2"}
+        ]
+      }
+    },
+    {
+      "id": "computational_001",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "result = 37 * 48\nprint(f'37 * 48 = {result}')"},
+          "result": {
+            "source_id": "offline-computational-001-p1",
+            "success": true,
+            "raw_content": {"stdout": "37 * 48 = 1776\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "generated_claims": [
+        {"text": "37 multiplied by 48 is 1776.", "source_id": "offline-computational-001-p1"},
+        {"text": "37 multiplied by 48 is 99.", "source_id": "offline-computational-001-p1"}
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "37 multiplied by 48 is 1776.", "source_id": "offline-computational-001-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_002",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "result = sum(n * n for n in range(1, 21))\nprint(f'sum of squares from 1 through 20 = {result}')"},
+          "result": {
+            "source_id": "offline-computational-002-p1",
+            "success": true,
+            "raw_content": {"stdout": "sum of squares from 1 through 20 = 2870\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The sum of the squares from 1 through 20 is 2870.", "source_id": "offline-computational-002-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_003",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "a, b = 0, 1\nfor _ in range(15):\n    a, b = b, a + b\nprint(f'F(15) = {a}')"},
+          "result": {
+            "source_id": "offline-computational-003-p1",
+            "success": true,
+            "raw_content": {"stdout": "F(15) = 610\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Using F(0) = 0 and F(1) = 1, F(15) is 610.", "source_id": "offline-computational-003-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_004",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "import math\nresult = math.gcd(123456, 7890)\nprint(f'gcd(123456, 7890) = {result}')"},
+          "result": {
+            "source_id": "offline-computational-004-p1",
+            "success": true,
+            "raw_content": {"stdout": "gcd(123456, 7890) = 6\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The greatest common divisor of 123456 and 7890 is 6.", "source_id": "offline-computational-004-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_005",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "primes = [n for n in range(2, 101) if all(n % d for d in range(2, int(n ** 0.5) + 1))]\nprint(f'number of primes <= 100 = {len(primes)}')"},
+          "result": {
+            "source_id": "offline-computational-005-p1",
+            "success": true,
+            "raw_content": {"stdout": "number of primes <= 100 = 25\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "There are 25 prime numbers less than or equal to 100.", "source_id": "offline-computational-005-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_006",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "balance = 1000 * (1 + 0.05) ** 10\nprint(f'balance after 10 years = ${balance:,.2f}')"},
+          "result": {
+            "source_id": "offline-computational-006-p1",
+            "success": true,
+            "raw_content": {"stdout": "balance after 10 years = $1,628.89\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The balance after 10 years is $1,628.89.", "source_id": "offline-computational-006-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_007",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "import statistics\nvalues = [3, 7, 8, 12, 14, 18, 21]\nprint(f'median = {statistics.median(values):g}')"},
+          "result": {
+            "source_id": "offline-computational-007-p1",
+            "success": true,
+            "raw_content": {"stdout": "median = 12\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The median is 12.", "source_id": "offline-computational-007-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_008",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "result = 2 ** 20\nprint(f'2^20 = {result}')"},
+          "result": {
+            "source_id": "offline-computational-008-p1",
+            "success": true,
+            "raw_content": {"stdout": "2^20 = 1048576\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "Two raised to the 20th power is 1048576.", "source_id": "offline-computational-008-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_009",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "import math\nresult = math.perm(10, 3)\nprint(f'10P3 = {result}')"},
+          "result": {
+            "source_id": "offline-computational-009-p1",
+            "success": true,
+            "raw_content": {"stdout": "10P3 = 720\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "The number of ordered arrangements is 720.", "source_id": "offline-computational-009-p1"}
+        ]
+      }
+    },
+    {
+      "id": "computational_010",
+      "actions": [
+        {
+          "tool": "run_python",
+          "input": {"code": "fahrenheit = 98.6\ncelsius = (fahrenheit - 32) * 5 / 9\nprint(f'98.6 F = {celsius:.1f} C')"},
+          "result": {
+            "source_id": "offline-computational-010-p1",
+            "success": true,
+            "raw_content": {"stdout": "98.6 F = 37.0 C\n", "stderr": "", "exit_code": 0}
+          }
+        }
+      ],
+      "expected_final": {
+        "status": "answered",
+        "claims": [
+          {"text": "98.6 degrees Fahrenheit is 37 degrees Celsius.", "source_id": "offline-computational-010-p1"}
+        ]
+      }
+    },
+    {
+      "id": "unanswerable_001",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Dr Elian Voss Nacre-9 expedition pocket watch serial number"},
+          "result": {
+            "source_id": "offline-unanswerable-001-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "Nacre-9 expedition records Elian Voss"},
+          "result": {
+            "source_id": "offline-unanswerable-001-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_002",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Mara Kestrel breakfast 14 March 1997"},
+          "result": {
+            "source_id": "offline-unanswerable-002-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "Mara Kestrel private citizen biography"},
+          "result": {
+            "source_id": "offline-unanswerable-002-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_003",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Orchid-77 model training random seed"},
+          "result": {
+            "source_id": "offline-unanswerable-003-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "unreleased private model Orchid-77 documentation"},
+          "result": {
+            "source_id": "offline-unanswerable-003-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_004",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Sera Vale navigator diary final sentence"},
+          "result": {
+            "source_id": "offline-unanswerable-004-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "unpublished diary fictional navigator Sera Vale"},
+          "result": {
+            "source_id": "offline-unanswerable-004-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_005",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "2039 Lunar Chess Championship Selene City winner"},
+          "result": {
+            "source_id": "offline-unanswerable-005-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "Selene City Lunar Chess Championship"},
+          "result": {
+            "source_id": "offline-unanswerable-005-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_006",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Aro Pell Nima Quill encrypted message 8 May 2008"},
+          "result": {
+            "source_id": "offline-unanswerable-006-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "Aro Pell Nima Quill correspondence"},
+          "result": {
+            "source_id": "offline-unanswerable-006-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_007",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Northbridge private collection jar K-19 sand grain count"},
+          "result": {
+            "source_id": "offline-unanswerable-007-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "sealed unmeasured jar K-19"},
+          "result": {
+            "source_id": "offline-unanswerable-007-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_008",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Helios Academy time capsule contents open 2120"},
+          "result": {
+            "source_id": "offline-unanswerable-008-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "sealed Helios Academy time capsule inventory"},
+          "result": {
+            "source_id": "offline-unanswerable-008-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_009",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Brindle Arc internal 2031 revenue forecast"},
+          "result": {
+            "source_id": "offline-unanswerable-009-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "private company Brindle Arc forecast"},
+          "result": {
+            "source_id": "offline-unanswerable-009-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    },
+    {
+      "id": "unanswerable_010",
+      "actions": [
+        {
+          "tool": "web_search",
+          "input": {"query": "Ivo Meran socks 2 February 2004 meeting"},
+          "result": {
+            "source_id": "offline-unanswerable-010-s1",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        },
+        {
+          "tool": "web_search",
+          "input": {"query": "Ivo Meran private citizen biography"},
+          "result": {
+            "source_id": "offline-unanswerable-010-s2",
+            "success": true,
+            "raw_content": {"results": [], "note": "No matching public source was found."}
+          }
+        }
+      ],
+      "expected_final": {"status": "declined", "message": "insufficient information", "claims": []}
+    }
+  ]
+}

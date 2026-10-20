@@ -1,0 +1,352 @@
+[
+  {
+    "id": "factual_001",
+    "question": "What is the chemical symbol for gold?",
+    "known_correct_answer": "Au",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_002",
+    "question": "Who wrote Pride and Prejudice?",
+    "known_correct_answer": "Jane Austen",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_003",
+    "question": "What is the capital of Japan?",
+    "known_correct_answer": "Tokyo",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_004",
+    "question": "Which planet is the largest in the Solar System?",
+    "known_correct_answer": "Jupiter",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_005",
+    "question": "In what year did Apollo 11 first land humans on the Moon?",
+    "known_correct_answer": "1969",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_006",
+    "question": "What is the largest ocean on Earth?",
+    "known_correct_answer": "Pacific Ocean",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_007",
+    "question": "How many chambers does a typical human heart have?",
+    "known_correct_answer": "Four",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_008",
+    "question": "Which chemical element has atomic number 6?",
+    "known_correct_answer": "Carbon",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_009",
+    "question": "Who painted The Starry Night?",
+    "known_correct_answer": "Vincent van Gogh",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_010",
+    "question": "What is the currency of Switzerland?",
+    "known_correct_answer": "Swiss franc",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_011",
+    "question": "What is the official language used nationally in Brazil?",
+    "known_correct_answer": "Portuguese",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_012",
+    "question": "What is the first element in the periodic table?",
+    "known_correct_answer": "Hydrogen",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_013",
+    "question": "In what year was the Treaty of Versailles signed?",
+    "known_correct_answer": "1919",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_014",
+    "question": "What is the tallest mountain above sea level?",
+    "known_correct_answer": "Mount Everest",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "factual_015",
+    "question": "At one standard atmosphere, what is the boiling point of pure water in degrees Celsius?",
+    "known_correct_answer": "100 degrees Celsius",
+    "category": "factual_lookup",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_001",
+    "question": "Use distinct web lookups: first find the number of permanent members of the United Nations Security Council, then find the element with that atomic number. Which element is it?",
+    "known_correct_answer": "Boron",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_002",
+    "question": "Use distinct web lookups: first identify the country whose flag has a centered red maple leaf, then find that country's capital. What is it?",
+    "known_correct_answer": "Ottawa",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_003",
+    "question": "Use distinct web lookups: first identify the novel whose protagonist is Winston Smith, then find its author. Who wrote it?",
+    "known_correct_answer": "George Orwell",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_004",
+    "question": "Use distinct web lookups: first identify the country where Angkor Wat is located, then find that country's official currency. What is it?",
+    "known_correct_answer": "Cambodian riel",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_005",
+    "question": "Use distinct web lookups: first identify the city and country that hosted the 2016 Summer Olympics, then find that country's national official language. What is it?",
+    "known_correct_answer": "Portuguese",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_006",
+    "question": "Use distinct web lookups: first identify Hamlet's author and count the letters in the author's surname, then find the element with that atomic number. What is its symbol?",
+    "known_correct_answer": "Na",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_007",
+    "question": "Use distinct web lookups: first identify the city and country that hosted the 1992 Summer Olympics, then find that country's capital. What is it?",
+    "known_correct_answer": "Madrid",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_008",
+    "question": "Use distinct web lookups: first identify the country whose capital is Sofia, then find the sea along that country's eastern coast. Which sea is it?",
+    "known_correct_answer": "Black Sea",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_009",
+    "question": "Use distinct web lookups: first identify the country whose capital is Wellington, then find that country's official currency. What is it?",
+    "known_correct_answer": "New Zealand dollar",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_010",
+    "question": "Use distinct web lookups: first identify the element named after the planet Uranus, then find the scientist credited with discovering it. What is the scientist's surname?",
+    "known_correct_answer": "Klaproth",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_011",
+    "question": "Use distinct web lookups: first identify the country where Machu Picchu is located, then find that country's capital. What is it?",
+    "known_correct_answer": "Lima",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_012",
+    "question": "Use distinct web lookups: first identify Iceland's capital, then find the element whose symbol matches its first two letters. Which element is it?",
+    "known_correct_answer": "Rhenium",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_013",
+    "question": "Use distinct web lookups: first identify Marie Curie's country of birth, then find that country's capital. What is it?",
+    "known_correct_answer": "Warsaw",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_014",
+    "question": "Use distinct web lookups: first identify the country containing Lake Bled, then find that country's official currency. What is it?",
+    "known_correct_answer": "Euro",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "multi_step_015",
+    "question": "Use distinct web lookups: first identify the country whose capital is Nairobi, then find that country's highest mountain. What is it?",
+    "known_correct_answer": "Mount Kenya",
+    "category": "multi_step",
+    "answerable": true
+  },
+  {
+    "id": "computational_001",
+    "question": "What is 37 multiplied by 48?",
+    "known_correct_answer": "1776",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_002",
+    "question": "What is the sum of the squares of the integers from 1 through 20, inclusive?",
+    "known_correct_answer": "2870",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_003",
+    "question": "Using F(0) = 0 and F(1) = 1, what is F(15) in the Fibonacci sequence?",
+    "known_correct_answer": "610",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_004",
+    "question": "What is the greatest common divisor of 123456 and 7890?",
+    "known_correct_answer": "6",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_005",
+    "question": "How many prime numbers are less than or equal to 100?",
+    "known_correct_answer": "25",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_006",
+    "question": "If $1,000 earns 5% interest compounded annually for 10 years with no deposits or withdrawals, what is the balance rounded to the nearest cent?",
+    "known_correct_answer": "$1,628.89",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_007",
+    "question": "What is the median of the numbers 3, 7, 8, 12, 14, 18, and 21?",
+    "known_correct_answer": "12",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_008",
+    "question": "What is 2 raised to the 20th power?",
+    "known_correct_answer": "1048576",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_009",
+    "question": "How many ordered arrangements of 3 distinct objects can be selected from 10 distinct objects without replacement?",
+    "known_correct_answer": "720",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "computational_010",
+    "question": "Convert 98.6 degrees Fahrenheit to degrees Celsius.",
+    "known_correct_answer": "37 degrees Celsius",
+    "category": "computational",
+    "answerable": true
+  },
+  {
+    "id": "unanswerable_001",
+    "question": "What serial number was engraved on the pocket watch carried by the fictional explorer Dr. Elian Voss during the unpublished Nacre-9 expedition?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_002",
+    "question": "What did the fictional private citizen Mara Kestrel eat for breakfast in her apartment on 14 March 1997?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_003",
+    "question": "What exact random seed was used to train the fictional unreleased private model Orchid-77?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_004",
+    "question": "What is the final sentence of the unpublished diary of the fictional navigator Sera Vale?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_005",
+    "question": "Who will win the fictional 2039 Lunar Chess Championship in Selene City?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_006",
+    "question": "What was the exact content of a private encrypted message sent between the fictional people Aro Pell and Nima Quill on 8 May 2008?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_007",
+    "question": "How many grains of sand are in the sealed, unmeasured jar labeled K-19 in the fictional Northbridge private collection?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_008",
+    "question": "What objects are inside the fictional Helios Academy time capsule that is sealed and not scheduled to be opened until 2120?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_009",
+    "question": "What exact revenue value appears in the unpublished internal 2031 forecast of the fictional private company Brindle Arc?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  },
+  {
+    "id": "unanswerable_010",
+    "question": "What color socks did the fictional private citizen Ivo Meran wear during an unrecorded meeting on 2 February 2004?",
+    "known_correct_answer": "No publicly verifiable answer exists.",
+    "category": "unanswerable",
+    "answerable": false
+  }
+]

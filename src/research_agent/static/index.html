@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta
+      name="description"
+      content="A tool-using research agent that returns source-bound, verifier-approved claims."
+    >
+    <title>Research Agent — Verified answers</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#main-content" aria-label="Research Agent home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span>
+            <span class="brand-name">Research Agent</span>
+            <span class="brand-note">Evidence before answer</span>
+          </span>
+        </a>
+
+        <div
+          id="service-status"
+          class="service-status service-status--checking"
+          role="status"
+          aria-live="polite"
+        >
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="service-status-text">Checking</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell page-main" tabindex="-1">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Tool-assisted research · Citation enforced</p>
+          <h1 id="page-title">Answers with an audit trail.</h1>
+        </div>
+        <p class="intro-copy">
+          Every displayed claim survived source validation. Follow the trace to see how web search,
+          document retrieval, and Python contributed to the result.
+        </p>
+      </section>
+
+      <div class="workspace" id="workspace">
+        <section class="panel query-panel" aria-labelledby="query-title">
+          <div class="panel-heading">
+            <div>
+              <p class="section-index" aria-hidden="true">01 / Ask</p>
+              <h2 id="query-title">Start a research run</h2>
+            </div>
+            <span class="limit-note">Hard step limit</span>
+          </div>
+
+          <form id="question-form" class="question-form" novalidate>
+            <div class="field-heading">
+              <label for="question">Research question</label>
+              <span id="question-count" class="character-count" aria-hidden="true">0 / 2,000</span>
+            </div>
+            <textarea
+              id="question"
+              name="question"
+              rows="5"
+              maxlength="2000"
+              required
+              aria-describedby="question-help form-message"
+              placeholder="Ask a factual, multi-step, or computational question…"
+            ></textarea>
+            <div class="form-footer">
+              <p id="question-help" class="field-help">
+                Press <kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run.
+              </p>
+              <button id="submit-button" class="button button--primary" type="submit">
+                <span class="button-label">Run research</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M4 10h11M11 5l5 5-5 5"></path>
+                </svg>
+              </button>
+            </div>
+            <p id="form-message" class="form-message" role="alert" aria-live="assertive"></p>
+          </form>
+
+          <div class="prompt-examples" aria-labelledby="examples-label">
+            <p id="examples-label" class="prompt-label">Try an example</p>
+            <div class="chip-row">
+              <button
+                class="prompt-chip"
+                type="button"
+                data-question="What discovery led to the 2024 Nobel Prize in Physiology or Medicine?"
+              >
+                Factual lookup
+              </button>
+              <button
+                class="prompt-chip"
+                type="button"
+                data-question="Which two countries hosted the 2023 and 2024 G7 summits, and what is the distance between their host cities?"
+              >
+                Multi-step research
+              </button>
+              <button
+                class="prompt-chip"
+                type="button"
+                data-question="Use Python to calculate the monthly payment on a $320,000 loan at 6.5% annual interest over 30 years."
+              >
+                Python calculation
+              </button>
+            </div>
+          </div>
+
+          <div id="run-loading" class="run-loading" role="status" aria-live="polite" hidden>
+            <div class="loading-copy">
+              <span class="loading-kicker">Agent running</span>
+              <strong>Gathering and checking evidence…</strong>
+            </div>
+            <div class="loading-track" aria-hidden="true"><span></span></div>
+            <p>Each tool result is added to the trace before the model can continue.</p>
+          </div>
+
+          <section id="answer-panel" class="answer-panel" aria-labelledby="answer-title" hidden>
+            <div class="answer-heading">
+              <div>
+                <p class="section-index">Verified output</p>
+                <h2 id="answer-title" tabindex="-1">Answer</h2>
+              </div>
+              <div id="verification-badge" class="verification-badge">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="m5.5 10.4 2.7 2.7 6.3-6.3"></path>
+                </svg>
+                <span id="verification-label">Verifier passed</span>
+              </div>
+            </div>
+
+            <p id="answer-summary" class="answer-summary"></p>
+            <ol id="claims-list" class="claims-list" aria-label="Verified claims"></ol>
+            <div id="no-claims" class="empty-answer" hidden>
+              <strong>I could not verify an answer.</strong>
+              <p>No generated claim passed source validation, so none is shown as an answer.</p>
+            </div>
+
+            <dl id="run-metadata" class="run-metadata" aria-label="Run summary"></dl>
+
+            <details id="deletion-audit" class="deletion-audit" hidden>
+              <summary id="deletion-summary">Verifier audit</summary>
+              <p>
+                Rejected claims are excluded from the answer above. This audit lists why they were
+                removed without presenting them as findings.
+              </p>
+              <ul id="deletion-list"></ul>
+            </details>
+          </section>
+        </section>
+
+        <aside class="panel trace-panel" aria-labelledby="trace-title">
+          <div class="panel-heading panel-heading--compact">
+            <div>
+              <p class="section-index" aria-hidden="true">02 / Trace</p>
+              <h2 id="trace-title">Research timeline</h2>
+            </div>
+            <span id="step-count" class="count-badge">0 steps</span>
+          </div>
+          <p class="panel-description">
+            Tool calls appear in execution order with their source identifier and outcome.
+          </p>
+          <div id="trace-empty" class="trace-empty">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="5" r="2"></circle>
+              <circle cx="12" cy="19" r="2"></circle>
+              <path d="M12 7v10"></path>
+            </svg>
+            <p>Your next run will leave a step-by-step evidence trail here.</p>
+          </div>
+          <ol id="trace-list" class="trace-list" aria-label="Agent steps"></ol>
+        </aside>
+      </div>
+
+      <section class="panel benchmark-panel" aria-labelledby="benchmark-title">
+        <div class="benchmark-heading">
+          <div>
+            <p class="section-index" aria-hidden="true">03 / Benchmark</p>
+            <h2 id="benchmark-title">Baseline vs. experiment</h2>
+            <p class="panel-description">
+              Full-run metrics across the fixed 50-question evaluation set.
+            </p>
+          </div>
+          <button id="refresh-results" class="button button--secondary" type="button">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M15.7 6.4A6.5 6.5 0 1 0 16 13M15.7 6.4V2.8m0 3.6h-3.6"></path>
+            </svg>
+            Refresh metrics
+          </button>
+        </div>
+
+        <div id="results-loading" class="results-loading" role="status" aria-live="polite">
+          Loading benchmark results…
+        </div>
+        <div id="results-empty" class="results-empty" hidden>
+          <strong>No completed comparison yet.</strong>
+          <p>Run the baseline and experiment to populate this table.</p>
+        </div>
+        <p id="results-error" class="results-error" role="alert" hidden></p>
+
+        <div id="comparison-content" hidden>
+          <div class="run-configs" aria-label="Compared configurations">
+            <div>
+              <span>Baseline</span>
+              <strong id="baseline-config">Default configuration</strong>
+            </div>
+            <div>
+              <span>Experiment</span>
+              <strong id="experiment-config">Single-variable change</strong>
+            </div>
+          </div>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Benchmark metric comparison table">
+            <table class="comparison-table">
+              <caption>Performance metrics for the baseline and experiment benchmark runs</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Metric</th>
+                  <th scope="col">Baseline</th>
+                  <th scope="col">Experiment</th>
+                  <th scope="col">Change</th>
+                </tr>
+              </thead>
+              <tbody id="metrics-body"></tbody>
+            </table>
+          </div>
+          <p class="table-note">Change is experiment minus baseline. Lower is better for hallucination, cost, and latency.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>Research Agent · Verifier-first output</p>
+        <p>Unverified claims are removed before display.</p>
+      </div>
+    </footer>
+
+    <noscript>
+      <div class="noscript-message">This interface requires JavaScript to run research queries.</div>
+    </noscript>
+  </body>
+</html>
